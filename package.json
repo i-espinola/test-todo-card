@@ -1,22 +1,23 @@
 {
-  "name": "template-react",
+  "name": "test-todo-card",
   "version": "0.0.1",
-  "description": "Template client side with Reactjs at create-react-app",
+  "description": "Teste Todo cartoes - front-end",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/i-espinola/template-react.git"
+    "url": "git+https://github.com/i-espinola/test-todo-card.git"
   },
   "bugs": {
-    "url": "https://github.com/i-espinola/template-react/issues"
+    "url": "https://github.com/i-espinola/test-todo-card/issues"
   },
-  "readme": "https://github.com/i-espinola/template-react#readme",
-  "license": "https://github.com/i-espinola/template-react/blob/master/LICENSE",
+  "readme": "https://github.com/i-espinola/test-todo-card#readme",
+  "license": "MIT",
   "main": "server/index.js",
   "homepage": ".",
   "scripts": {
     "clean": "rm -rf build package-lock.json npm-debug.log",
     "local": "rm -rf /var/www/localServer/public/* && cp -R ./* /var/www/localServer/public/ && cd /var/www/localServer/public/ && npm run build && node /var/www/localServer/backend/server.js",
+    "back": "json-server --watch database/db.json --port 3030",
     "start": "npm run build && pm2 start server/index.js",
     "build": "npm run clean && react-scripts build",
     "eject": "react-scripts eject",
@@ -24,9 +25,12 @@
     "test": "react-scripts test"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "bootstrap": "^4.4.1",
     "express": "^4.17.1",
     "express-favicon": "^2.0.1",
+    "font-awesome": "^4.7.0",
+    "json-server": "^0.15.1",
     "pm2": "^4.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
