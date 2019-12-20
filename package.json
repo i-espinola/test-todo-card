@@ -1,6 +1,6 @@
 {
   "name": "test-todo-card",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Teste Todo cartoes - front-end",
   "private": false,
   "repository": {
@@ -15,7 +15,7 @@
   "main": "server/index.js",
   "homepage": ".",
   "scripts": {
-    "clean": "rm -rf build package-lock.json npm-debug.log",
+    "clean": "rm -rf build package-lock.json npm-debug.log server/logs/*",
     "build": "npm run clean && react-scripts build",
     "local": "rm -rf /var/www/localServer/public/* && cp -R ./* /var/www/localServer/public/ && cd /var/www/localServer/public/ && npm run build && node /var/www/localServer/backend/server.js",
     "back": "json-server --watch database/db.json --port 3030",

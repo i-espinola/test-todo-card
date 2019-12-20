@@ -1,6 +1,6 @@
 const setup = {
 	path: process.env.INIT_CWD || __dirname,
-	file: 'index.html',
+	file: '/index.html',
 	public: '/build',
 	request: '/*',
 	port: process.env.PORT || 3000,
