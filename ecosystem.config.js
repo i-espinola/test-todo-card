@@ -8,10 +8,10 @@ module.exports = {
 			// out_file: './server/logs/out.log',
 			// error_file: './server/logs/err.log',
 			log_file: './server/logs/combined.log',
-			instances: 1,
+			// instances: 1,
 			// time: true,
 			// watch: true,
-			// instances: 'max',
+			instances: 'max',
 			// autorestart: true,
 			// max_memory_restart: '512M',
 			env: {
