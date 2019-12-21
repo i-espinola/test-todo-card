@@ -1,0 +1,133 @@
+@import 'Variables';
+
+.gift-card {
+    width: 400px;
+    margin: 15px;
+    height: 250px;
+    position: relative;
+    border-radius: $radius;
+    box-sizing: content-box;
+    -webkit-perspective: 800;
+    -moz-perspective: 800;
+    -ms-perspective: 800;
+    -o-perspective: 800;
+    perspective: 800;
+
+    .card {
+        width: 100%;
+        height: 100%;
+        // overflow: hidden;
+        transition: 0.5s;
+        -o-transition: 0.5s;
+        -ms-transition: 0.5s;
+        -moz-transition: 0.5s;
+        -webkit-transition: 0.5s;
+        transform-style: preserve-3d;
+        -o-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+
+        &.flipped {
+            transform:rotatey(-180deg);
+            -o-transform:rotatey(-180deg);
+            -ms-transform:rotatey(-180deg);
+            -moz-transform:rotatey(-180deg);
+            -webkit-transform:rotatey(-180deg);
+        }
+    
+        .side {
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+            flex-direction: column;
+            cursor: pointer;
+            overflow: hidden;
+            position: absolute;
+            box-sizing: border-box;
+            backface-visibility: hidden; 
+            -o-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            box-shadow: 0 0 10px 2px transparentize($gray-800, 0.3);
+        }
+
+        .front {
+            font-size: 3em;
+            background: $gradient-card;
+            color: white;
+            border-radius: $radius-card;
+        }
+
+        .back {
+            background: $gradient-card-flip;
+            border-radius: $radius-card;
+            color: black;
+            font-size: 2em;
+            transform:rotatey(-180deg);
+            -o-transform:rotatey(-180deg);
+            -ms-transform:rotatey(-180deg);
+            -moz-transform:rotatey(-180deg);
+            -webkit-transform:rotatey(-180deg);
+
+            .bar-black {
+                background: $black;
+                width: 100%;
+                height: 50px;
+            }
+    
+            .bar-white {
+                border-radius: 0.2rem;
+                background: $white;
+                margin: 20px 30px;
+                width: 100%;
+                height: 30px;
+            }
+        }
+
+
+        .brand {
+            width: 2em;
+        }
+
+        .middle {
+
+            & h5 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            font-weight: 100;
+            }
+        }
+        
+        .footer {
+            
+            label {
+                font-size: $font-small;
+                display: block;
+                margin: 0;
+            }
+            
+            span {
+                font-size: $font-medium;
+                font-weight: bold;
+                display: block;
+            }
+            
+            & :last-child {
+
+                label {
+                    font-size: $font-small;
+                }
+
+                span {
+                    font-size: $font-small;
+                    font-weight: 100;
+                }
+            }
+        }
+    }
+}

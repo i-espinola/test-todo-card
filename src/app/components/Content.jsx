@@ -4,23 +4,21 @@
 import PropTypes from 'prop-types'
 
 // Style
-import '../assets/scss/_Card.scss'
+import '../assets/scss/_Content.scss'
 
-export default function Card (props)
+export default function Content (props)
 {
     return (
-        <div className='card'>
-            <div className='card-head'>
+        <div className='content'>
+            <div className='content-head text-center'>
                 { props.header }
             </div>
-            <div className='card-body'>
-                { props.children }
-            </div>
+            { props.children }
         </div>
     )
 }
 
-Card.propTypes = {
+Content.propTypes = {
     header: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.node

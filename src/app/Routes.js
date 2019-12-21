@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 
 // COMPONENTS VIEWS IMPORTS
 import Home from './views/home'
+import Login from './views/order/Login'
 
 const Routes = props => (
 	<Switch>
@@ -13,6 +14,10 @@ const Routes = props => (
 			exact
 			path="/home"
 			render={() => <Home data={props.data} dataFlow={props.dataFlow} />}
+		/>
+		<Route
+			path="/login"
+			render={() => <Login data={props.data} dataFlow={props.dataFlow} />}
 		/>
 		<Redirect from="*" to="/home" />
 	</Switch>

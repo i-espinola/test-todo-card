@@ -1,4 +1,13 @@
 {
+    "clients": [
+      {
+        "id": 1,
+        "name": "Ivan Espínola G.",
+        "email": "ivan@gmail.com",
+        "login": "logan",
+        "pwd": "123"
+      }
+    ],
   "products": [
     {
       "id": 1,

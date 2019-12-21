@@ -24,10 +24,7 @@ export default class App extends React.Component
         this.dataFlow = this.dataFlow.bind(this)
     }
 
-    dataFlow = (arrData) =>
-    {
-        this.setState({ [arrData[0]]: arrData[1] })
-    }
+    dataFlow = (arrData) => this.setState({ [arrData[0]]: arrData[1] })
 
     render = () =>
     {

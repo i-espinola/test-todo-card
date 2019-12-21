@@ -1,0 +1,48 @@
+﻿@import 'Variables';
+
+.content {
+    margin: -123px auto 30px;
+    position: relative;
+    background: $white;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: $shadow;
+    border-radius: $radius;
+
+    .content-head {
+        line-height: 2.9rem;
+        min-height: 123px;
+        width: 100%;
+        padding: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        box-sizing: border-box;
+        border-bottom: 1px solid $gray-300;
+
+        h1 {
+            font-weight: 100;
+            margin: 0;
+        }
+
+        span {
+            font-weight: normal;
+            margin: 0;
+        }
+    }
+
+    .content-body {
+        width: 100%;
+        padding: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        box-sizing: border-box;
+
+        &.no-padding {
+            padding: 0;
+        }
+    }
+    
+    .content-footer {
+        display: block;
+    }
+}
