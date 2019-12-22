@@ -20,7 +20,7 @@
     "clean": "rm -rf build package-lock.json npm-debug.log server/logs/*",
     "back": "json-server --watch database/db.json --port 3030",
     "build": "npm run clean && react-scripts build",
-    "start": "npm run build && pm2 start ecosystem.config.js --env production",
+    "start": "npm run build && pm2-runtime start ecosystem.config.js --env production",
     "eject": "react-scripts eject",
     "dev": "react-scripts start",
     "test": "react-scripts test"
@@ -34,6 +34,7 @@
     "json-server": "^0.15.1",
     "node-sass": "^4.13.0",
     "pm2": "^4.2.1",
+    "pm2-server-monit": "^3.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
