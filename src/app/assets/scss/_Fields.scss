@@ -1,6 +1,7 @@
 @import 'Variables';
 
-div {
+div,
+form {
 
     &.field-group {
         margin-bottom: 1rem;
@@ -13,13 +14,20 @@ div {
             margin-bottom: .5rem;
         }
 
-        &.error {
+    }
+
+    >.error {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin: 10px auto;
+
+        span {
             text-transform: uppercase;
             letter-spacing: .04rem;
             font-size: $font-small;
             font-weight: bold;
             text-align: center;
-            color: $orange;
+            color: $secondary;
         }
     }
 

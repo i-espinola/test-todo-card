@@ -15,6 +15,7 @@ const initState = {
     title: 'Inicie uma sessão',
     subtitle: 'Login',
     register: false,
+    loader: false,
     signIn: {
         login: '',
         pwd: ''
@@ -31,8 +32,10 @@ const initState = {
         pwd: false,
         login: false,
         email: false,
+        empty: false
     },
     msg: {
+        empty: 'Preencha todos os campos',
         inPwd: 'Senha incorreta',
         inLogin: 'Login não encontrado',
         upLogin: 'Login indisponível - Tente outro login',
@@ -62,37 +65,104 @@ class Login extends React.Component
         )
     }
 
-    submitSignIn = () =>
-    {
-        Axios.get(`${ this.props.data.api }clients?login=${ this.state.signIn.login }`)
-        .then(res =>
+    validSignUp = () =>
+    { 
+        const regis = this.state.signUp
+
+        if (regis.name && regis.login && regis.email && regis.emailCheck && regis.pwd && regis.pwdCheck)
         {
-            if (res.data.length && res.data[0].pwd === this.state.signIn.pwd)
-            {
-                const sectionData = ['user', res.data[0]]
-                this.props.dataFlow(sectionData)
-                // MANDAR P PAGINA DE CRIACAO
-                this.props.history.push('/create')
-            } else if (res.data[0].pwd !== this.state.signIn.pwd) 
-            {
-                this.setState(prevState => ({
-                    error: { ...prevState.error, pwd: true },
-                }))
-            } else {
-                this.setState(prevState => ({
-                    error: { ...prevState.error, login: true },
-                }))
-            }
-        })
+            const checkEmail = regis.email === regis.emailCheck ? true : this.setState(prevState => ({ error: { ...prevState.error, email: true } }), () => { return false })
+            const checkPwd = regis.pwd === regis.pwdCheck ? true : this.setState(prevState => ({ error: { ...prevState.error, pwd: true } }), () => { return false })
+            const valid = checkPwd && checkEmail ? true : false
+
+            return valid
+        } else
+        { 
+            this.formEmpty()
+            return false
+        }
     }
 
-    submitsignUp = () => { }
+    formEmpty = () =>
+    { 
+        this.setState(prevState => ({ error: { ...prevState.error, empty: true } }))
+    }
+
+    formError = () =>
+    { 
+        if (this.state.register)
+        {
+            const error = this.state.error.login
+                ? this.state.msg.upLogin
+                : this.state.error.email
+                ? this.state.msg.upEmail
+                : this.state.error.pwd
+                ? this.state.msg.upPwd
+                : this.state.error.empty
+                ? this.state.msg.empty
+                : '⠀'
+            
+            return error
+        } else
+        { 
+            const error = this.state.error.login
+				? this.state.msg.inLogin
+				: this.state.error.pwd
+				? this.state.msg.inPwd
+				: this.state.error.empty
+				? this.state.msg.empty
+                : '⠀'
+            
+            return error
+        }
+    }
+
+    submitSignIn = () =>
+    {
+        if (this.state.signIn.login && this.state.signIn.pwd) {
+			this.setState({ loader: true })
+			Axios.get(`${this.props.data.api}clients?login=${this.state.signIn.login}`)
+				.then(res => {
+					if (
+						res.data.length &&
+						res.data[0].pwd === this.state.signIn.pwd
+					) {
+						const sectionData = ['user', res.data[0]]
+						this.props.dataFlow(sectionData)
+						this.props.history.push('/create')
+					} else if (!res.data.length) {
+						this.setState(prevState => ({
+							error: { ...prevState.error, login: true },
+						}))
+					} else {
+						this.setState(prevState => ({
+							error: { ...prevState.error, pwd: true },
+						}))
+					}
+				})
+				.finally(() => {
+					this.setState({ loader: false })
+				})
+		} else this.formEmpty()
+    }
+
+    submitsignUp = () =>
+    { 
+        if (this.validSignUp())
+        {
+            debugger
+        } else
+        { 
+            debugger
+        }
+    }
 
     resetErrors = () => this.setState({ error: initState.error })
 
     toggleForm = () =>
     { 
         this.setState({
+            error: initState.error,
 			signIn: initState.signIn,
 			signUp: initState.signUp,
 			register: !this.state.register,
@@ -107,92 +177,98 @@ class Login extends React.Component
             ...this.state[form],
             [e.target.name]: e.target.value
         }
-        if (err.email || err.login || err.pwd) this.resetErrors()
+        if (err.email || err.login || err.pwd || err.empty) this.resetErrors()
         this.setState({ [form]: input })
     }
 
     formSignUp = () =>
     { 
-        return(
-            <div className='form sign-up'>
-                <h2>Criar conta</h2>
-                <small>Campor obrigatórios são marcados com *</small>
-                <hr />
-                <div className="field-group">
-                    <label>Nome *</label>
-                    <input
-                        type="text"
-                        onChange={ (e) => this.formFields(e) }
-                        name="name"
-                        data-form='signUp'
-                        value={ this.state.signUp.name }
-                    />
-                </div>
-                <div className="field-group">
-                    <label>Login *</label>
-                    <input
-                        type="text"
-                        onChange={ (e) => this.formFields(e) }
-                        name="login"
-                        data-form='signUp'
-                        value={ this.state.signUp.login }
-                    />
-                </div>
-                <div className="field-group">
-                    <label>E-mail *</label>
-                    <input
-                        type="text"
-                        onChange={ (e) => this.formFields(e) }
-                        name="email"
-                        data-form='signUp'
-                        value={ this.state.signUp.email }
-                    />
-                </div>
-                <div className="field-group">
-                    <label>Confirmação de E-mail *</label>
-                    <input
-                        type="text"
-                        onChange={ (e) => this.formFields(e) }
-                        name="emailCheck"
-                        data-form='signUp'
-                        value={ this.state.signUp.emailCheck }
-                    />
-                </div>
-                <div className="field-group">
-                    <label>Senha *</label>
-                    <input
-                        type="password"
-                        onChange={ (e) => this.formFields(e) }
-                        name="pwd"
-                        data-form='signUp'
-                        value={ this.state.signUp.pwd }
-                    />
-                </div>
-                <div className="field-group">
-                    <label>Confirmação de senha *</label>
-                    <input
-                        type="password"
-                        onChange={ (e) => this.formFields(e) }
-                        name="pwdCheck"
-                        data-form='signUp'
-                        value={ this.state.signUp.pwdCheck }
-                    />
-                </div>
-                <div className="btn-group">
+        return (
+			<div className="form sign-up">
+				<h2>Criar conta</h2>
+				<small>Campor obrigatórios são marcados com *</small>
+				<hr />
+				<div className="field-group">
+					<label>Nome *</label>
+					<input
+						type="text"
+						onChange={e => this.formFields(e)}
+						name="name"
+						data-form="signUp"
+						value={this.state.signUp.name}
+					/>
+				</div>
+				<div className="field-group">
+					<label>Login *</label>
+					<input
+						type="text"
+						onChange={e => this.formFields(e)}
+						name="login"
+						data-form="signUp"
+						value={this.state.signUp.login}
+					/>
+				</div>
+				<div className="field-group">
+					<label>E-mail *</label>
+					<input
+						type="text"
+						onChange={e => this.formFields(e)}
+						name="email"
+						data-form="signUp"
+						value={this.state.signUp.email}
+					/>
+				</div>
+				<div className="field-group">
+					<label>Confirmação de E-mail *</label>
+					<input
+						type="text"
+						onChange={e => this.formFields(e)}
+						name="emailCheck"
+						data-form="signUp"
+						value={this.state.signUp.emailCheck}
+					/>
+				</div>
+				<div className="field-group">
+					<label>Senha *</label>
+					<input
+						type="password"
+						onChange={e => this.formFields(e)}
+						name="pwd"
+						data-form="signUp"
+						value={this.state.signUp.pwd}
+					/>
+				</div>
+				<div className="field-group">
+					<label>Confirmação de senha *</label>
+					<input
+						type="password"
+						onChange={e => this.formFields(e)}
+						name="pwdCheck"
+						data-form="signUp"
+						value={this.state.signUp.pwdCheck}
+					/>
+				</div>
+				<div className="error">
+					<span>{this.formError()}</span>
+				</div>
+				<div className="btn-group">
                     <button
-                        onClick={ () => this.toggleForm() }
-                        className="secondary"
-                    >
-                        Voltar
-                    </button>
+                        disabled={ this.state.loader }
+						onClick={() => this.toggleForm()}
+						className="secondary"
+					>
+						Voltar
+					</button>
                     <button
-                        className="primary"
-                    >
-                        Criar conta
-                    </button>
-                </div>
-            </div>
-        )
+                        disabled={ this.state.loader }
+						onClick={() => this.submitsignUp()}
+						className="primary"
+					>
+						{ this.state.loader ? <i className='fa fa-spinner fa-pulse'></i> : 'Criar conta' }
+					</button>
+				</div>
+			</div>
+		)
     }
 
     formSignIn = () =>
@@ -216,24 +292,29 @@ class Login extends React.Component
 					<label>Senha *</label>
 					<input
 						type="password"
-						onChange={(e) => this.formFields(e)}
+						onChange={e => this.formFields(e)}
 						name="pwd"
 						data-form="signIn"
 						value={this.state.signIn.pwd}
 					/>
 				</div>
+				<div className="error">
+					<span>{this.formError()}</span>
+				</div>
 				<div className="btn-group">
-					<button
+                    <button
+                        disabled={ this.state.loader }
 						onClick={() => this.toggleForm()}
 						className="secondary"
 					>
 						Criar conta
 					</button>
-					<button
+                    <button
+                        disabled={ this.state.loader }
 						onClick={() => this.submitSignIn()}
 						className="primary"
 					>
-						Login
+						{ this.state.loader ? <i className='fa fa-spinner fa-pulse'></i> : 'login' }
 					</button>
 				</div>
 			</div>

@@ -15,12 +15,12 @@
   "main": "server/index.js",
   "homepage": ".",
   "scripts": {
-    "clean": "rm -rf build package-lock.json npm-debug.log server/logs/*",
-    "build": "npm run clean && react-scripts build",
     "local": "rm -rf /var/www/localServer/public/* && cp -R ./* /var/www/localServer/public/ && cd /var/www/localServer/public/ && npm run build && node /var/www/localServer/backend/server.js",
-    "back": "json-server --watch database/db.json --port 3030",
     "stop": "pm2 stop ecosystem.config.js && pm2 delete ecosystem.config.js",
-    "start": "npm run build && pm2-runtime start ecosystem.config.js --env production",
+    "clean": "rm -rf build package-lock.json npm-debug.log server/logs/*",
+    "back": "json-server --watch database/db.json --port 3030",
+    "build": "npm run clean && react-scripts build",
+    "start": "npm run build && pm2 start ecosystem.config.js --env production",
     "eject": "react-scripts eject",
     "dev": "react-scripts start",
     "test": "react-scripts test"
