@@ -1,7 +1,7 @@
 ﻿@import 'Variables';
 
 .content {
-    margin: -123px auto 30px;
+    margin: -103px auto 30px;
     position: relative;
     background: $white;
     width: 100%;
@@ -10,8 +10,7 @@
     border-radius: $radius;
 
     .content-head {
-        line-height: 2.9rem;
-        min-height: 123px;
+        min-height: 100px;
         width: 100%;
         padding: 15px;
         margin-right: auto;

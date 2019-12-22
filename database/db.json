@@ -6,6 +6,20 @@
         "email": "ivan@gmail.com",
         "login": "logan",
         "pwd": "123"
+      },
+      {
+        "id": 2,
+        "name": "Renata Espínola G.",
+        "email": "renata@gmail.com",
+        "login": "batata",
+        "pwd": "321"
+      },
+      {
+        "id": 3,
+        "name": "Batata Espínola G.",
+        "email": "renata@gmail.com",
+        "login": "renatinha",
+        "pwd": "321"
       }
     ],
   "products": [

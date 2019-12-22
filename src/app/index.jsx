@@ -9,7 +9,9 @@ import Routes from './Routes'
 
 const initState = {
 	title: 'Welcome Geek',
-	subtitle: 'Is the React boilerplate template',
+    subtitle: 'Is the React boilerplate template',
+    api: 'http://localhost:3030/',
+    user: {}
 }
 
 export default class App extends React.Component 

@@ -1,8 +1,9 @@
 import React from 'react'
 
 // dependencys
-import { Link } from 'react-router-dom'
+import Axios from 'axios'
 import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
 
 // Components Childs
 import Content from '../../components/Content'
@@ -25,10 +26,22 @@ const initState = {
         emailCheck: '',
         pwd: '',
         pwdCheck: '',
+    },
+    error: {
+        pwd: false,
+        login: false,
+        email: false,
+    },
+    msg: {
+        inPwd: 'Senha incorreta',
+        inLogin: 'Login não encontrado',
+        upLogin: 'Login indisponível - Tente outro login',
+        upPwd: 'A senha e confirmação não são idênticas',
+        upEmail: 'O e-mail e confirmação não são idênticos',
     }
 }
 
-export default class Login extends React.Component
+class Login extends React.Component
 {
     constructor (props)
     {
@@ -49,14 +62,53 @@ export default class Login extends React.Component
         )
     }
 
+    submitSignIn = () =>
+    {
+        Axios.get(`${ this.props.data.api }clients?login=${ this.state.signIn.login }`)
+        .then(res =>
+        {
+            if (res.data.length && res.data[0].pwd === this.state.signIn.pwd)
+            {
+                const sectionData = ['user', res.data[0]]
+                this.props.dataFlow(sectionData)
+                // MANDAR P PAGINA DE CRIACAO
+                this.props.history.push('/create')
+            } else if (res.data[0].pwd !== this.state.signIn.pwd) 
+            {
+                this.setState(prevState => ({
+                    error: { ...prevState.error, pwd: true },
+                }))
+            } else {
+                this.setState(prevState => ({
+                    error: { ...prevState.error, login: true },
+                }))
+            }
+        })
+    }
+
+    submitsignUp = () => { }
+
+    resetErrors = () => this.setState({ error: initState.error })
+
+    toggleForm = () =>
+    { 
+        this.setState({
+			signIn: initState.signIn,
+			signUp: initState.signUp,
+			register: !this.state.register,
+		})
+    }
+
     formFields = (e) =>
     { 
+        const err = this.state.error
         const form = e.target.dataset.form
         const input = {
             ...this.state[form],
             [e.target.name]: e.target.value
         }
-        this.setState({[form]: input})
+        if (err.email || err.login || err.pwd) this.resetErrors()
+        this.setState({ [form]: input })
     }
 
     formSignUp = () =>
@@ -101,7 +153,7 @@ export default class Login extends React.Component
                     <input
                         type="text"
                         onChange={ (e) => this.formFields(e) }
-                        name="email-check"
+                        name="emailCheck"
                         data-form='signUp'
                         value={ this.state.signUp.emailCheck }
                     />
@@ -121,23 +173,23 @@ export default class Login extends React.Component
                     <input
                         type="password"
                         onChange={ (e) => this.formFields(e) }
-                        name="pwd-check"
+                        name="pwdCheck"
                         data-form='signUp'
                         value={ this.state.signUp.pwdCheck }
                     />
                 </div>
                 <div className="btn-group">
                     <button
-                        onClick={ () => this.setState({ register: !this.state.register }) }
+                        onClick={ () => this.toggleForm() }
                         className="secondary"
                     >
                         Voltar
-                            </button>
+                    </button>
                     <button
                         className="primary"
                     >
                         Criar conta
-                            </button>
+                    </button>
                 </div>
             </div>
         )
@@ -146,45 +198,46 @@ export default class Login extends React.Component
     formSignIn = () =>
     { 
         return (
-            <div className='form'>
-                <h2>Login</h2>
-                <small>Campor obrigatórios são marcados com *</small>
-                <hr />
-                <div className="field-group">
-                    <label>Login *</label>
-                    <input
-                        type="text"
-                        onChange={ (e) => this.formFields(e) }
-                        name="login"
-                        data-form='signIn'
-                        value={ this.state.signIn.login }
-                    />
-                </div>
-                <div className="field-group">
-                    <label>Senha *</label>
-                    <input
-                        type="text"
-                        onChange={ (e) => this.formFields(e) }
-                        name="pwd"
-                        data-form='signIn'
-                        value={ this.state.signIn.pwd }
-                    />
-                </div>
-                <div className="btn-group">
-                    <button
-                        onClick={ () => this.setState({ register: !this.state.register }) }
-                        className="secondary"
-                    >
-                        Criar conta
-                    </button>
-                    <button
-                        className="primary"
-                    >
-                        Login
-                    </button>
-                </div>
-            </div>
-        )
+			<div className="form">
+				<h2>Login</h2>
+				<small>Campor obrigatórios são marcados com *</small>
+				<hr />
+				<div className="field-group">
+					<label>Login *</label>
+					<input
+						type="text"
+						onChange={e => this.formFields(e)}
+						name="login"
+						data-form="signIn"
+						value={this.state.signIn.login}
+					/>
+				</div>
+				<div className="field-group">
+					<label>Senha *</label>
+					<input
+						type="password"
+						onChange={(e) => this.formFields(e)}
+						name="pwd"
+						data-form="signIn"
+						value={this.state.signIn.pwd}
+					/>
+				</div>
+				<div className="btn-group">
+					<button
+						onClick={() => this.toggleForm()}
+						className="secondary"
+					>
+						Criar conta
+					</button>
+					<button
+						onClick={() => this.submitSignIn()}
+						className="primary"
+					>
+						Login
+					</button>
+				</div>
+			</div>
+		)
     }
 
     contentBody = () =>
@@ -217,6 +270,8 @@ export default class Login extends React.Component
         )
     }
 }
+
+export default withRouter(Login)
 
 Login.propTypes = {
     dataFlow: PropTypes.func.isRequired,
