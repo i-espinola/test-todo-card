@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 // Components Childs
 import Content from '../../components/Content'
-import GiftCard from '../../components/GiftCard'
+import CardGift from '../../components/CardGift'
 
 // Style
 import '../../assets/scss/Home.scss'
@@ -17,7 +17,7 @@ import Brand from '../../assets/images/brand.svg'
 const initState = {
     title: 'Bem vindo!',
     subtitle: 'Home',
-    cardSide: false
+    cardSide: false,
 }
 
 export default class Home extends React.Component
@@ -36,10 +36,10 @@ export default class Home extends React.Component
     contentHeader = () =>
     {
         return (
-            <React.Fragment>
+            <div className='content-head text-center'>
                 <h1>{ this.state.title }</h1>
                 <span>{this.state.subtitle}</span>
-            </React.Fragment>
+            </div>
         )
     }
 
@@ -60,9 +60,9 @@ export default class Home extends React.Component
                         </Link>
                     </div>
                     <div className='col d-flex justify-content-center'>
-                        <GiftCard cardSide={ this.state.cardSide } toggleCard={ this.toggleCard }>
+                        <CardGift cardSide={ this.state.cardSide } toggleCard={ this.toggleCard }>
                             { this.cardBuild() }
-                        </GiftCard>
+                        </CardGift>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@ export default class Home extends React.Component
     cardBuild = () =>
     { 
         return (
-            <div className='content-body'>
+            <React.Fragment>
                 <div className="side front d-flex justify-content-between">
                     <div className="row">
                         <div className="col d-flex justify-content-end">
@@ -108,7 +108,7 @@ export default class Home extends React.Component
                         </div>
                     </div>
                 </div>
-            </div>
+            </React.Fragment>
         )
     }
 

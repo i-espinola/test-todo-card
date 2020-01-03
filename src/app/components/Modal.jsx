@@ -7,22 +7,21 @@ import PropTypes from 'prop-types'
 import '../assets/scss/_Modal.scss'
 
 // Components Childs
-import Logo from './Brand'
+import Brand from './Brand'
 
-export default function Modal (props)
-{
-    return (
-        <div className={ props.display ? 'modal' : 'd-none' }>
-            <div className='modal-content'>
-                <div className='modal-head'>
-                    <Logo />
-                    <span>campos marcados com * são obrigatórios</span>
-                </div>
-                { props.children }
+const Modal = (props) => (
+    <div className={ props.display ? 'modal' : 'd-none' }>
+        <div className='modal-content'>
+            <div className='modal-head'>
+                <Brand />
+                <span>campos marcados com * são obrigatórios</span>
             </div>
+            { props.children }
         </div>
-    )
-}
+    </div>
+)
+
+export default Modal
 
 Modal.propTypes = {
     display: PropTypes.bool.isRequired,

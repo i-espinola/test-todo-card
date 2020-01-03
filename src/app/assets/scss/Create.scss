@@ -1,1 +1,10 @@
 @import 'Variables';
+@import 'Buttons';
+@import 'Fields';
+
+.content-head {
+
+    > div {
+        padding: 0;
+    }
+}

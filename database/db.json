@@ -1,27 +1,14 @@
 {
-    "clients": [
-      {
-        "id": 1,
-        "name": "Ivan Espínola G.",
-        "email": "ivan@gmail.com",
-        "login": "logan",
-        "pwd": "123"
-      },
-      {
-        "id": 2,
-        "name": "Renata Espínola G.",
-        "email": "renata@gmail.com",
-        "login": "batata",
-        "pwd": "321"
-      },
-      {
-        "id": 3,
-        "name": "Batata Espínola G.",
-        "email": "renata@gmail.com",
-        "login": "renatinha",
-        "pwd": "321"
-      }
-    ],
+  "clients": [
+    {
+      "name": "Ivan Espínola Gomes",
+      "email": "ivanspinola@gmail.com",
+      "login": "logan",
+      "password": "123",
+      "list": [],
+      "id": 1
+    }
+  ],
   "products": [
     {
       "id": 1,
@@ -1495,7 +1482,7 @@
     },
     {
       "id": 246,
-      "price": 10.0,
+      "price": 10,
       "name": "Water, Tap",
       "image": "http://dummyimage.com/600x600.jpg/ff4444/ffffff"
     },
@@ -2575,7 +2562,7 @@
     },
     {
       "id": 426,
-      "price": 33.0,
+      "price": 33,
       "name": "Soup - Campbells Bean Medley",
       "image": "http://dummyimage.com/600x600.jpg/5fa2dd/ffffff"
     },
@@ -2737,7 +2724,7 @@
     },
     {
       "id": 453,
-      "price": 77.0,
+      "price": 77,
       "name": "Lemonade - Island Tea, 591 Ml",
       "image": "http://dummyimage.com/600x600.jpg/cc0000/ffffff"
     },
@@ -3079,7 +3066,7 @@
     },
     {
       "id": 510,
-      "price": 79.0,
+      "price": 79,
       "name": "Remy Red Berry Infusion",
       "image": "http://dummyimage.com/600x600.jpg/ff4444/ffffff"
     },
@@ -3859,7 +3846,7 @@
     },
     {
       "id": 640,
-      "price": 48.0,
+      "price": 48,
       "name": "Mussels - Frozen",
       "image": "http://dummyimage.com/600x600.jpg/5fa2dd/ffffff"
     },
@@ -4531,7 +4518,7 @@
     },
     {
       "id": 752,
-      "price": 32.0,
+      "price": 32,
       "name": "Wine - Semi Dry Riesling Vineland",
       "image": "http://dummyimage.com/600x600.jpg/cc0000/ffffff"
     },
@@ -4567,7 +4554,7 @@
     },
     {
       "id": 758,
-      "price": 24.0,
+      "price": 24,
       "name": "Mushroom Morel Fresh",
       "image": "http://dummyimage.com/600x600.jpg/cc0000/ffffff"
     },
@@ -4639,7 +4626,7 @@
     },
     {
       "id": 770,
-      "price": 64.0,
+      "price": 64,
       "name": "Veal - Tenderloin, Untrimmed",
       "image": "http://dummyimage.com/600x600.jpg/ff4444/ffffff"
     },
@@ -5233,7 +5220,7 @@
     },
     {
       "id": 869,
-      "price": 59.0,
+      "price": 59,
       "name": "Chicken - Wieners",
       "image": "http://dummyimage.com/600x600.jpg/5fa2dd/ffffff"
     },
@@ -5797,7 +5784,7 @@
     },
     {
       "id": 963,
-      "price": 28.0,
+      "price": 28,
       "name": "Pastry - Apple Muffins - Mini",
       "image": "http://dummyimage.com/600x600.jpg/5fa2dd/ffffff"
     },

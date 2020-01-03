@@ -1,6 +1,6 @@
 @import 'Variables';
 
-.gift-card {
+.card-gift {
     width: 400px;
     margin: 15px;
     height: 250px;
@@ -18,6 +18,7 @@
         height: 100%;
         // overflow: hidden;
         transition: 0.5s;
+        border: none;
         -o-transition: 0.5s;
         -ms-transition: 0.5s;
         -moz-transition: 0.5s;
@@ -41,10 +42,10 @@
             width: 100%;
             height: 100%;
             padding: 15px;
-            flex-direction: column;
             cursor: pointer;
             overflow: hidden;
             position: absolute;
+            flex-direction: column;
             box-sizing: border-box;
             backface-visibility: hidden; 
             -o-backface-visibility: hidden;
@@ -93,13 +94,19 @@
         }
 
         .middle {
+            line-height: 1.3rem;
 
-            & h5 {
+            label {
             font-size: 1.5rem;
+            display: block;
             text-transform: uppercase;
             letter-spacing: 1px;
             text-align: center;
             font-weight: 100;
+            }
+
+            span {
+                font-size: 1.7rem;
             }
         }
         

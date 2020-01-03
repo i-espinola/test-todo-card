@@ -1,18 +1,32 @@
 @import 'Variables';
 
-a,
 button {
-    border: none;
     padding: 10px 30px;
     font-weight: bold;
-    color: $white;
+    color: $gray-500;
+    border: 1px solid $gray-500;
+    border-radius: $radius;
     background: transparent;
     font-size: $font-medium;
-    border-radius: $radius;
     transition: $transition;
     -o-transition: $transition;
     -moz-transition: $transition;
     -webkit-transition: $transition;
+
+    &.default {
+        border-radius: $radius;
+        background: transparent;
+        color: $gray-500;
+        border: 1px solid $gray-500;
+        
+        &:focus,
+        &:active,
+        &:hover {
+            color: $white;
+            background: $gray-500;
+            box-shadow: 0 0 5px 1px $gray-500;
+        }
+    }
 
     &.primary {
         border-radius: $radius;
@@ -23,7 +37,7 @@ button {
         &:active,
         &:hover {
             color: $white;
-            box-shadow: 0 0 5px 1px $gray-900;
+            box-shadow: 0 0 5px 1px $gray-500;
         }
     }
     
@@ -36,7 +50,7 @@ button {
         &:active,
         &:hover {
             color: $white;
-            box-shadow: 0 0 5px 1px $gray-900;
+            box-shadow: 0 0 5px 1px $gray-500;
         }
     }
 
@@ -73,7 +87,7 @@ button {
         &:focus,
         &:active,
         &:hover {
-            box-shadow: 0px 0px 10px 0px $gray-900;
+            box-shadow: 0px 0px 10px 0px $gray-500;
             transform: rotate(-180deg);
             -o-transform: rotate(-180deg);
             -ms-transform: rotate(-180deg);

@@ -9,9 +9,21 @@ import Routes from './Routes'
 
 const initState = {
 	title: 'Welcome Geek',
-    subtitle: 'Is the React boilerplate template',
-    api: 'http://localhost:3030/',
-    user: {}
+	subtitle: 'Is the React boilerplate template',
+	api: 'http://localhost:3030/',
+}
+
+const initUser = {
+    // user: {},
+    user: { // ENABLE ONLY DEVELOP
+        name: 'Ivan Espí­nola Gomes',
+        email: 'ivanspinola@gmail.com',
+        login: 'logan',
+        password: '123',
+        list: [],
+        cards: [],
+        id: 1,
+    }
 }
 
 export default class App extends React.Component 
@@ -21,12 +33,21 @@ export default class App extends React.Component
     {
         super(props)
         this.state = {
-            ...initState
+            ...initState,
+            ...initUser,
         }
         this.dataFlow = this.dataFlow.bind(this)
     }
 
-    dataFlow = (arrData) => this.setState({ [arrData[0]]: arrData[1] })
+    /**
+     * @param {...object} data
+     */
+    dataFlow = (data) =>
+    { 
+        this.setState(prevState => ({
+            user: { ...prevState.user, data }
+        }))
+    }
 
     render = () =>
     {
