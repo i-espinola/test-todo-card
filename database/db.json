@@ -7,6 +7,14 @@
       "password": "123",
       "list": [],
       "id": 1
+    },
+    {
+      "name": "Ivan Espínola Gomes",
+      "email": "ivan.espinola@live.com",
+      "login": "i-espinola",
+      "password": "000",
+      "list": [],
+      "id": 2
     }
   ],
   "products": [

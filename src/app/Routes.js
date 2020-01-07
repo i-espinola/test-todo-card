@@ -11,9 +11,9 @@ import Create from './views/create'
 
 const Routes = props => (
 	<Switch>
-		<Route exact path="/login" render={ () => <Login data={ props.data } dataFlow={ props.dataFlow } /> } />
-		<Route path="/create" render={ () => <Create data={ props.data } dataFlow={ props.dataFlow } /> } />
-		{/* <Route path="/home" render={ () => <Home data={ props.data } dataFlow={ props.dataFlow } /> } /> */}
+		<Route exact path="/login" render={ () => <Login topData={ props.topData } topFlow={ props.topFlow } /> } />
+		<Route path="/create" render={ () => <Create topData={ props.topData } topFlow={ props.topFlow } /> } />
+		{/* <Route path="/home" render={ () => <Home topData={ props.topData } topFlow={ props.topFlow } /> } /> */}
 		<Redirect from="*" to="/login" />
 	</Switch>
 )
@@ -21,6 +21,6 @@ const Routes = props => (
 export default Routes
 
 Routes.propTypes = {
-	dataFlow: PropTypes.func.isRequired,
-	data: PropTypes.object.isRequired,
+	topFlow: PropTypes.func.isRequired,
+	topData: PropTypes.object.isRequired,
 }

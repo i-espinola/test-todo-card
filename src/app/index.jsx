@@ -8,8 +8,6 @@ import Header from './components/Header'
 import Routes from './Routes'
 
 const initState = {
-	title: 'Welcome Geek',
-	subtitle: 'Is the React boilerplate template',
 	api: 'http://localhost:3030/',
 }
 
@@ -40,14 +38,10 @@ export default class App extends React.Component
     }
 
     /**
-     * @param {...object} data
+     * @param {object} data
      */
-    dataFlow = (data) =>
-    { 
-        this.setState(prevState => ({
-            user: { ...prevState.user, data }
-        }))
-    }
+    dataFlow = (data) => this.setState(data)
+
 
     render = () =>
     {
@@ -55,7 +49,7 @@ export default class App extends React.Component
             <BrowserRouter>
                 <div className="main">
                     <Header />
-                    <Routes data={ this.state } dataFlow={ this.dataFlow } />
+                    <Routes topData={ this.state } topFlow={ this.dataFlow } />
                 </div>
             </BrowserRouter>
         )

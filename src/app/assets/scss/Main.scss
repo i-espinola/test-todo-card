@@ -4,6 +4,7 @@
 // @import 'bootstrap/scss/bootstrap-reboot.scss';
 // @import 'bootstrap/scss/_utilities.scss';
 // @import 'bootstrap/scss/bootstrap-grid.scss';
+
 @import 'Variables';
 
 body {
@@ -23,7 +24,6 @@ body {
         select {
             outline-offset: none;
             outline: none;
-            box-shadow: none;
         }
 
         a {

@@ -8,3 +8,31 @@
         padding: 0;
     }
 }
+
+.select-card {
+    max-width: 360px;
+    border-radius: $radius;
+    box-shadow: $shadow;
+
+        &:focus,
+        &:active,
+        &:hover {
+            box-shadow: none;
+            transform: scale(.99);
+        }
+
+    .select-card-header {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        border-bottom: 1px groove $white;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+
+        > h6 {
+            margin: 0;
+            padding-left: 15px;
+        }
+    }
+}

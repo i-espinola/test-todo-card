@@ -16,24 +16,30 @@ import Check from './Check'
 import '../../assets/scss/Create.scss'
 
 const initState = {
-	title: 'Criar cartão gift',
+	title: 'Cartão gift',
 	subtitle: 'Configuração',
 }
 
 const initStep = {
-	stepActive: 1,
-	steps: ['Seleção', 'Cartão', 'Confirmação'],
+	stepActive: 0,
+	stepsTitles: ['Seleção', 'Cartão', 'Confirmação'],
+	stepsDescription: ['Selecione um tipo de cartão', 'Configurando o cartão', 'Confirmação do cartão'],
 }
 
 const initSelect = {
-	cardCredit: true,
+	cardCredit: false,
 	cardDefined: false,
 }
 
 const initFormCredit = {
-	recipient: 'persona',
-	validity: 'date',
-	value: 100,
+	name: '',
+	lastName: '',
+	validity: '',
+	value: 300,
+}
+
+const initCardGift = {
+	cardSideBack: false
 }
 
 class Create extends React.Component {
@@ -46,116 +52,95 @@ class Create extends React.Component {
 			...initState,
 			...initSelect,
 			...initFormCredit,
+			...initCardGift,
 		}
-		this.dataFlowCreate = this.dataFlowCreate.bind(this)
+		this.flowCreate = this.flowCreate.bind(this)
 	}
 
-	// dataFlowCreate = (data) => this.setState(data)
-	dataFlowCreate = (data) =>
-	{
-		debugger
-		if (data.target)
-		{
-			debugger
-			const name = data.target.name
-			const select = data.target.type === 'radio'
-			
-			if (select) {
-				debugger
-				this.setState({
+	flowCreate = (data, key) =>
+	{ 
+		switch (key) {
+			case 'select':
+				this.setState(({
 					...initSelect,
-					[name]: !this.state[name]
-				})
-			} else { 
-				debugger
-				const value = data.target.value
-				this.setState({	[name]: value })
-			}
-			
-		} else this.setState({ ...data })
+					...data
+				}))
+				break;
+			default:
+				this.setState(data)
+				break;
+		}
 	}
 
-	stepSelect = () =>
+	stepsBuild = () =>
 	{
 		const card = this.state.cardCredit
-			? (<CardCredit dataCreate={ this.state } dataFlowCreate={ this.dataFlowCreate } />)
-			: (<CardDefined dataCreate={ this.state } dataFlowCreate={ this.dataFlowCreate } />)
-		const select = <Select dataCreate={ this.state } dataFlowCreate={ this.dataFlowCreate } />
-		const check = <Check dataCreate={ this.state } dataFlowCreate={ this.dataFlowCreate } />
+			? <CardCredit dataCreate={ this.state } flowCreate={ this.flowCreate } />
+			: <CardDefined dataCreate={ this.state } flowCreate={ this.flowCreate } />
+		const select = <Select dataCreate={ this.state } flowCreate={ this.flowCreate } />
+		const check = <Check dataCreate={ this.state } flowCreate={ this.flowCreate } />
 		const steps = [select, card, check]
-		const active = this.state.stepActive
 
-		return steps[active]
+		return steps
 	}
 
-	stepNav = () =>
-	{
-		const isFinally = this.state.stepActive === this.state.steps.length
-		const btnPrimary = this.state.stepActive === this.state.steps.length - 1
-			? 'Concluir'
-			: 'Próximo'
-		const reset = () => (
-			<div>
-				<label> Todas etapas concluídas</label>
-				<button
-					data-action="reset"
-					className="secondary"
-					onClick={ () => this.setState({ stepActive: 0 }) }
-				>
-					Reiniciar
-				</button>
-			</div>
-		)
-		const backNext = () => (
-			<div className="d-flex justify-content-between">
-				<button
-					className="default"
-					data-action="back"
-					disabled={ !this.state.stepActive }
-					onClick={ () => this.setState({ stepActive: this.state.stepActive - 1 }) }
-				>
-					Voltar
-				</button>
-				<button
-					className="primary"
-					data-action="next"
-					onClick={ () => this.setState({ stepActive: this.state.stepActive + 1 }) }
-				>
-					{ btnPrimary }
-				</button>
-			</div>
-		)
+	stepBtn = () => (
 
-		return isFinally ? reset() : backNext()
-	}
+		<div className="d-flex justify-content-between">
+			<button
+				className="default"
+				disabled={ !this.state.stepActive }
+				onClick={ () => this.setState({ stepActive: this.state.stepActive - 1 }) }
+			>
+				Voltar
+			</button>
+			<button
+				className="primary"
+				onClick={ () => this.setState({ stepActive: this.state.stepActive + 1 }) }
+			>
+				{ this.state.stepActive === this.state.stepsTitles.length - 1 ? 'Concluir' : 'Próximo' }
+			</button>
+		</div>
+	)
+
 
 	contentBuild = () => (
 		<React.Fragment>
-			<div className="content-head text-center">
-				<h1>{ this.state.title }</h1>
-				<span>{ this.state.subtitle }</span>
+			<div className="content-head d-flex align-items-center">
+				<Steps
+					active={ this.state.stepActive }
+					titles={ this.state.stepsTitles }
+				/>
 			</div>
 			<div className="content-body">
 				<div className="row d-flex align-items-center">
 					<div className="col mt-2">
 						<Steps
-							steps={ this.state.steps }
-							stepActive={ this.state.stepActive }
-						/>
+							active={ this.state.stepActive }
+						>
+							{ this.stepsBuild() }
+						</Steps>
 					</div>
 				</div>
-				{ this.stepSelect() }
 			</div>
 			<div className="content-footer">
 				<div className="row d-flex justify-content-end">
-					<div className="col mt-2">{ this.stepNav() }</div>
+					<div className="col mt-2">{ this.stepBtn() }</div>
 				</div>
 			</div>
 		</React.Fragment>
 	)
 
+	validity = () =>
+	{
+		const date = new Date(Date.now() + (90 * 24 * 60 * 60 * 1000))
+		const validity = date.toLocaleDateString('pt-BR')
+		this.setState({ validity: validity })
+	}
+
 	componentDidMount = () => {
-		if (!this.props.data.user.id) this.props.history.push('/login')
+		if (!this.props.topData.user.id) this.props.history.push('/login')
+		else if (!this.state.validity) this.validity()
 	}
 
 	render = () => (

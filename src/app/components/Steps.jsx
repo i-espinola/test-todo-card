@@ -2,25 +2,33 @@
 
 // dependencys
 import PropTypes from 'prop-types'
-import Stepper from '@material-ui/core/Stepper'
-import Step from '@material-ui/core/Step'
-import StepLabel from '@material-ui/core/StepLabel'
+import { Steps } from 'antd';
 
-const Steps = (props) => (
-	<Stepper activeStep={ props.stepActive } alternativeLabel>
-		{
-			props.steps.map(label => (
-				<Step key={ label }>
-					<StepLabel>{ label }</StepLabel>
-				</Step>
-			))
-		}
-	</Stepper>
-)
+const { Step } = Steps
 
-export default Steps
+const steps = (props) => {
 
-Steps.propTypes = {
-	steps: PropTypes.array.isRequired,
-	stepActive: PropTypes.number.isRequired,
+	return (
+		< React.Fragment >
+			{ !props.children
+				? <Steps progressDot current={ props.active }>
+					{
+						props.titles.map((title, index) =>
+							<Step key={ index } title={ title } />
+						)
+					}
+				</Steps>
+				: props.children[props.active]
+			}
+		</React.Fragment>
+	)
+}
+
+export default steps
+
+steps.propTypes = {
+	active: PropTypes.number.isRequired,
+	titles: (props) => (!props.children ? PropTypes.array.isRequired : PropTypes.array),
+	subtitles: PropTypes.array,
+	children: (props) => (!props.titles ? PropTypes.array.isRequired : PropTypes.array),
 }
