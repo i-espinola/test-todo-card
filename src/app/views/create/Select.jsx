@@ -7,31 +7,20 @@ import { Card } from 'antd'
 
 const select = (props) =>
 {
-    const description = props.dataCreate.stepsDescription
-    const active = props.dataCreate.stepActive
-
     return (
         <React.Fragment>
             <div className="row text-center">
                 <div className="col mt-2">
-                    <h1>{ description[active] }</h1>
+                    <h1>{ props.createData.stepsDescription[props.createData.stepActive] }</h1>
                 </div>
             </div>
             <div className="row">
                 <div className="col mt-4 d-flex justify-content-center">
-                    <Card
-                        className="select-card"
-                        cover={
-                            <img
-                                alt="example"
-                                src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-                            />
-                        }
-                    >
+                    <Card className="select-card">
                         <div className="select-card-header">
                             <Switch
-                                checked={ props.dataCreate.cardCredit }
-                                onClick={ () => props.flowCreate({ cardCredit: !props.dataCreate.cardCredit }, 'select') }
+                                checked={ props.createData.cardCredit }
+                                onClick={ () => props.createFlow({ cardCredit: !props.createData.cardCredit }, 'select') }
                             />
                             <h6>Cartão crédito</h6>
                         </div>
@@ -41,19 +30,11 @@ const select = (props) =>
                     </Card>
                 </div>
                 <div className="col mt-4 d-flex justify-content-center">
-                    <Card
-                        className="select-card"
-                        cover={
-                            <img
-                                alt="example"
-                                src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-                            />
-                        }
-                    >
+                    <Card className="select-card">
                         <div className="select-card-header">
                             <Switch
-                                checked={ props.dataCreate.cardDefined }
-                                onClick={ () => props.flowCreate({cardDefined: !props.dataCreate.cardDefined}, 'select' ) }
+                                checked={ props.createData.cardDefined }
+                                onClick={ () => props.createFlow({cardDefined: !props.createData.cardDefined}, 'select' ) }
                             />
                             <h6>Cartão pré-definido</h6>
                         </div>
@@ -66,9 +47,14 @@ const select = (props) =>
     )
 }
 
-export default select
-
 select.propType = {
-    flowCreate: PropTypes.func.isRequired,
-    dataCreate: PropTypes.object.isRequired,
+    createFlow: PropTypes.func.isRequired,
+    createData: PropTypes.shape({
+        stepsDescription: PropTypes.array.isRequired,
+        stepActive: PropTypes.number.isRequired,
+        cardDefined: PropTypes.bool.isRequired,
+        cardCredit: PropTypes.bool.isRequired,
+    }).isRequired
 }
+
+export default select

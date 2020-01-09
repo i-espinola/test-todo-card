@@ -52,10 +52,10 @@ class Create extends React.Component {
 			...initCardType,
 			...initFormCredit,
 		}
-		this.flowCreate = this.flowCreate.bind(this)
+		this.createFlow = this.createFlow.bind(this)
 	}
 
-	flowCreate = (data) =>
+	createFlow = (data) =>
 	{
 		debugger
 		if (data.target)
@@ -110,8 +110,8 @@ class Create extends React.Component {
 
 	stepSelect = () =>
 	{
-		const type = <Type data={ this.state } flowCreate={ this.flowCreate } />
-		const data = <Data data={ this.state } flowCreate={ this.flowCreate } />
+		const type = <Type data={ this.state } createFlow={ this.createFlow } />
+		const data = <Data data={ this.state } createFlow={ this.createFlow } />
 		const steps = [type, data]
 		const step = this.state.stepActive
 

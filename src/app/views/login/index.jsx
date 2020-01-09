@@ -52,6 +52,6 @@ export default class Login extends React.Component
 Login.propTypes = {
     topFlow: PropTypes.func.isRequired,
     topData: PropTypes.shape({
-        api: PropTypes.string
-    })
+        api: PropTypes.string.isRequired
+    }).isRequired
 }

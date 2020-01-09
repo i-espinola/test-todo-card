@@ -1,7 +1,7 @@
 ﻿@import 'Variables';
 
 .content {
-    margin: -103px auto 30px;
+    margin: -100px auto 30px;
     position: relative;
     background: $white;
     width: 100%;
@@ -16,7 +16,7 @@
         margin-right: auto;
         margin-left: auto;
         box-sizing: border-box;
-        border-bottom: 1px solid $gray-300;
+        border-bottom: 1px groove transparentize($white, .65);
 
         h1 {
             font-weight: 100;
@@ -47,5 +47,6 @@
         margin-right: auto;
         margin-left: auto;
         box-sizing: border-box;
+        border-top: 1px groove transparentize($white, .65);
     }
 }

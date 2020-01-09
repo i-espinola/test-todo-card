@@ -4,9 +4,10 @@
 import PropTypes from 'prop-types'
 import { Steps } from 'antd';
 
-const { Step } = Steps
 
-const steps = (props) => {
+const Stages = (props) => {
+	
+	const { Step } = Steps
 
 	return (
 		< React.Fragment >
@@ -24,11 +25,11 @@ const steps = (props) => {
 	)
 }
 
-export default steps
-
-steps.propTypes = {
+Stages.propTypes = {
+	titles: (props) => !(props.children ? PropTypes.array.isRequired : PropTypes.array),
+	children: (props) => !(props.titles ? PropTypes.array.isRequired : PropTypes.array),
 	active: PropTypes.number.isRequired,
-	titles: (props) => (!props.children ? PropTypes.array.isRequired : PropTypes.array),
 	subtitles: PropTypes.array,
-	children: (props) => (!props.titles ? PropTypes.array.isRequired : PropTypes.array),
 }
+
+export default Stages

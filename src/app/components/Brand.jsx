@@ -9,10 +9,10 @@ import '../assets/scss/_Brand.scss'
 //Image
 import Brand from '../assets/images/brand.svg'
 
-export default props => (
+export default (props) => (
     <aside className='brand'>
         <Link to='/'>
-            <img src={ Brand } alt='Logotipo' width={ props.width || '' }></img>
+            <img src={ Brand } alt='Logotipo' width={ props.width || 'auto' }></img>
         </Link>
     </aside>
 )

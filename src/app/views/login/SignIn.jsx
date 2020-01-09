@@ -69,6 +69,7 @@ class SignIn extends React.Component
         if (this.state.form.login && this.state.form.pwd)
         {
             this.setState({ loader: true })
+
             Axios.get(`${ this.state.api }clients?login=${ this.state.form.login }`)
                 .then(res =>
                 {
@@ -157,7 +158,7 @@ class SignIn extends React.Component
 
     render = () => (
         <React.Fragment>
-            <div className='content-head text-center'>
+            <div className='content-head d-flex align-items-center justify-content-center'>
                 <h1>{ this.state.title }</h1>
             </div>
             <div className='content-body pt-0 pb-0'>
@@ -174,12 +175,13 @@ class SignIn extends React.Component
     )
 }
 
-export default withRouter(SignIn)
-
 SignIn.propTypes = {
     topFlow: PropTypes.func.isRequired,
     loginFlow: PropTypes.func.isRequired,
     loginData: PropTypes.shape({
-        api: PropTypes.string
-    })
+        api: PropTypes.string.isRequired,
+        loader: PropTypes.bool.isRequired
+    }).isRequired
 }
+
+export default withRouter(SignIn)

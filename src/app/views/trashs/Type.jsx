@@ -20,7 +20,7 @@ const Type = (props) => (
 				<h5 className="d-flex align-items-center">
 					<Radio
 						checked={ props.data.cardDefined }
-						onChange={ (e) => props.flowCreate(e) }
+						onChange={ (e) => props.createFlow(e) }
 						name="cardDefined"
 						inputProps={ { 'aria-label': 'cardDefined' } }
 					/>						
@@ -36,7 +36,7 @@ const Type = (props) => (
 				<h5>
 					<Radio
 						checked={ props.data.cardCredit }
-						onChange={ (e) => props.flowCreate(e) }
+						onChange={ (e) => props.createFlow(e) }
 						name="cardCredit"
 						inputProps={ { 'aria-label': 'cardCredit' } }
 					/>
@@ -56,6 +56,6 @@ const Type = (props) => (
 export default Type
 
 Type.propTypes = {
-	flowCreate: PropTypes.func.isRequired,
+	createFlow: PropTypes.func.isRequired,
 	data: PropTypes.object.isRequired,
 }

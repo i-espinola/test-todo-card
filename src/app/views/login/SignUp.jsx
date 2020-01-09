@@ -111,7 +111,8 @@ class SignUp extends React.Component
                 email: this.state.form.email,
                 login: this.state.form.login,
                 password: this.state.form.pwd,
-                list: []
+                list: [],
+                cards: [],
             }
             Axios.post(`${ this.state.api }clients`, model)
                 .then(res =>
@@ -230,7 +231,7 @@ class SignUp extends React.Component
 
     render = () => (
         <React.Fragment>
-            <div className='content-head text-center'>
+            <div className='content-head d-flex align-items-center justify-content-center'>
                 <h1>{ this.state.title }</h1>
             </div>
             <div className='content-body pt-0 pb-0'>
@@ -244,12 +245,13 @@ class SignUp extends React.Component
     )
 }
 
-export default withRouter(SignUp)
-
 SignUp.propTypes = {
     topFlow: PropTypes.func.isRequired,
     loginFlow: PropTypes.func.isRequired,
     loginData: PropTypes.shape({
-        api: PropTypes.string
-    })
+        api: PropTypes.string.isRequired,
+        loader: PropTypes.bool.isRequired
+    }).isRequired
 }
+
+export default withRouter(SignUp)

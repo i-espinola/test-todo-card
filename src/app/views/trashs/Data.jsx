@@ -33,7 +33,7 @@ export default class CardData extends React.Component
 				<input
 					type="text"
 					autoComplete="on"
-					onChange={ e => this.props.flowCreate(e) }
+					onChange={ e => this.props.createFlow(e) }
 					name="recipient"
 					value={ this.props.data.recipient }
 				/>
@@ -43,7 +43,7 @@ export default class CardData extends React.Component
 				<input
 					type="number"
 					autoComplete="on"
-					onChange={ e => this.props.flowCreate(e) }
+					onChange={ e => this.props.createFlow(e) }
 					name="value"
 					value={ this.props.data.value }
 				/>
@@ -75,7 +75,7 @@ export default class CardData extends React.Component
 				<div className="col d-flex justify-content-center">
 					<CardGift
 						cardSideBack={ this.props.data.cardSideBack }
-						toggle={ this.props.flowCreate }
+						toggle={ this.props.createFlow }
 						recipient={ this.props.data.recipient }
 						value={ this.props.data.value }
 						date={ this.props.data.date }
@@ -104,6 +104,6 @@ export default class CardData extends React.Component
 }
 
 CardData.propTypes = {
-	flowCreate: PropTypes.func.isRequired,
+	createFlow: PropTypes.func.isRequired,
 	data: PropTypes.object.isRequired,
 }

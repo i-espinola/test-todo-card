@@ -21,8 +21,6 @@ const Modal = (props) => (
     </div>
 )
 
-export default Modal
-
 Modal.propTypes = {
     display: PropTypes.bool.isRequired,
     children: PropTypes.oneOfType([
@@ -30,3 +28,5 @@ Modal.propTypes = {
         PropTypes.node
     ]).isRequired
 }
+
+export default Modal

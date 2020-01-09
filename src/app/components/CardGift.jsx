@@ -30,7 +30,7 @@ const CardGift = (props) =>
                         <div className="col text-center">
                             <label>Vale presente</label>
                             <span>
-                                <b>`R$ ${ props.value }`</b>
+                                <b>{ `R$ ${ props.value }` }</b>
                             </span>
                         </div>
                     </div>
@@ -66,14 +66,12 @@ const CardGift = (props) =>
     )
 }
 
-export default CardGift
-
 CardGift.propTypes = {
-    validity: PropTypes.string.isRequired,
-    lastName: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
     value: PropTypes.number,
+    validity: PropTypes.string.isRequired,
     brand: PropTypes.string.isRequired,
-    cardSideBack: PropTypes.bool.isRequired,
 }
 
+export default CardGift

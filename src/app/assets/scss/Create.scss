@@ -2,23 +2,15 @@
 @import 'Buttons';
 @import 'Fields';
 
-.content-head {
-
-    > div {
-        padding: 0;
-    }
-}
-
 .select-card {
     max-width: 360px;
     border-radius: $radius;
-    box-shadow: $shadow;
-
-        &:focus,
-        &:active,
-        &:hover {
-            box-shadow: none;
-            transform: scale(.99);
+    
+    &:focus,
+    &:active,
+    &:hover {
+        box-shadow: $shadow;
+            transform: scale(1.01);
         }
 
     .select-card-header {
@@ -35,4 +27,54 @@
             padding-left: 15px;
         }
     }
+}
+
+.step-validation {
+    text-transform: uppercase;
+    letter-spacing: .04rem;
+    font-size: $font-small;
+    font-weight: bold;
+    text-align: center;
+    color: $secondary;
+}
+
+.products-cards {
+   display: flex;
+   flex-wrap: wrap;
+  justify-content: space-between;
+
+    > div {
+        margin-bottom: 13px;
+        cursor: pointer;
+        flex: 0 0 calc(25% - 5px);
+        max-width: calc(25% - 5px);
+
+            &.selected {
+                
+                &:after {
+                content: '';
+                width: 100%;
+                height: 100%;
+                background: transparentize($primary, 0.95);
+                border: 1px solid $primary;
+                box-sizing: border-box;
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        & .ant-card-meta-title {
+            white-space: normal;
+            height: 48px;
+        }
+    }
+}
+
+.save,    
+.filters {
+    display: flex;
+    flex: 1 0 0;
+    align-items: center;
 }

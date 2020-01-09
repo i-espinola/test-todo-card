@@ -5,7 +5,7 @@ import CardCredit from './CardCredit'
 import CardDefined from './CardDefined'
 
 const Data = (props) => (
-    props.dataCreate.cardCredit
+    props.createData.cardCredit
         ? <CardCredit />
         : <CardDefined /> 
 )
