@@ -1,16 +1,7 @@
-var setup = {
-	path: process.env.INIT_CWD || __dirname,
-	port: process.env.PORT || 3000,
-	request: '/*',
-	public: 'build/',
-	file: 'index.html',
-	favicon: '/build/favicon.ico',
-	banner: '\nExpress server on\n',
-}
-
 // Express server
 // To run in production
 const http = require('http')
+const setup = require('./setup.js')
 const favicon = require('express-favicon')
 const express = require('express')
 const path = require('path')

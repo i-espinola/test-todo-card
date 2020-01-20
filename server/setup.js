@@ -4,6 +4,7 @@ const setup = {
 	public: '/build',
 	request: '/*',
 	port: process.env.PORT || 3000,
+	portApi: process.env.PORT || 3030,
 	headers: {
 		accept: 'application/json',
 		'Access-Control-Allow-Origin': '*',

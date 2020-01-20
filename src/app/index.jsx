@@ -9,7 +9,7 @@ export default class App extends React.Component
 {
     state = {
         api: 'https://todo-cartoes-api.herokuapp.com/',
-        user: { id: 0  },
+        user: { id: 0  }
     }
 
     /**

@@ -20,7 +20,8 @@
         "dev": "react-app-rewired start",
         "back": "json-server --watch database/db.json --port 3030",
         "stop": "pm2 stop ecosystem.config.js && pm2 delete ecosystem.config.js",
-        "start": "npm run build && pm2-runtime start ecosystem.config.js --env production"
+        "postinstall": "npm run build",
+        "start": "node server/index.js"
     },
     "dependencies": {
         "antd": "^3.26.5",
