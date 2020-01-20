@@ -1,37 +1,39 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap');
-@import url('https://use.fontawesome.com/releases/v5.12.0/css/all.css');
 @import 'bootstrap/scss/bootstrap.scss';
-// @import 'bootstrap/scss/bootstrap-reboot.scss';
-// @import 'bootstrap/scss/_utilities.scss';
-// @import 'bootstrap/scss/bootstrap-grid.scss';
-
+@import 'ant-custom';
 @import 'Variables';
 
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: $font-family;
-    color: $font-color;
-    background: $gray-200;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: $font-family;
+	color: $font-color;
+	background: $gray-200;
 
-    .main {
+	.container,
+	.container-fluid {
+		img,
+		button,
+		input,
+		textarea,
+		select {
+			outline-offset: none;
+			outline: none;
+		}
 
-        img,
-        button,
-        input,
-        textarea,
-        select {
-            outline-offset: none;
-            outline: none;
-        }
+		a {
+			text-decoration: none;
+		}
 
-        a {
-            text-decoration: none;
-        }
+		b {
+			font-weight: bold;
+		}
 
-        b {
-            font-weight: bold;
-        }
-    }
+		.text-nowrap {
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+	}
 }

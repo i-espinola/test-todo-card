@@ -2,19 +2,94 @@
   "clients": [
     {
       "name": "Ivan Espínola Gomes",
-      "email": "ivanspinola@gmail.com",
-      "login": "logan",
-      "password": "123",
-      "list": [],
-      "id": 1
-    },
-    {
-      "name": "Ivan Espínola Gomes",
       "email": "ivan.espinola@live.com",
-      "login": "i-espinola",
+      "login": "logan",
       "password": "000",
-      "list": [],
-      "id": 2
+      "lists": [
+        {
+          "name": "Importados",
+          "itens": [
+            {
+              "id": 867,
+              "price": 32.7,
+              "name": "7up Diet, 355 Ml",
+              "image": "http://dummyimage.com/600x600.jpg/ff4444/ffffff"
+            },
+            {
+              "id": 45,
+              "price": 41.85,
+              "name": "Amarula Cream",
+              "image": "http://dummyimage.com/600x600.jpg/ff4444/ffffff"
+            },
+            {
+              "id": 812,
+              "price": 67.75,
+              "name": "Anchovy Fillets",
+              "image": "http://dummyimage.com/600x600.jpg/cc0000/ffffff"
+            },
+            {
+              "id": 171,
+              "price": 10.05,
+              "name": "Tofu - Firm",
+              "image": "http://dummyimage.com/600x600.jpg/5fa2dd/ffffff"
+            },
+            {
+              "id": 246,
+              "price": 10,
+              "name": "Water, Tap",
+              "image": "http://dummyimage.com/600x600.jpg/ff4444/ffffff"
+            },
+            {
+              "id": 923,
+              "price": 26.08,
+              "name": "Appetizer - Sausage Rolls",
+              "image": "http://dummyimage.com/600x600.jpg/cc0000/ffffff"
+            },
+            {
+              "id": 501,
+              "price": 16.16,
+              "name": "Appetizer - Mango Chevre",
+              "image": "http://dummyimage.com/600x600.jpg/cc0000/ffffff"
+            }
+          ],
+          "id": 1
+        },
+        {
+          "name": "Promocionais",
+          "itens": [
+            {
+              "id": 497,
+              "price": 26.09,
+              "name": "7up Diet, 355 Ml",
+              "image": "http://dummyimage.com/600x600.jpg/dddddd/000000"
+            },
+            {
+              "id": 45,
+              "price": 41.85,
+              "name": "Amarula Cream",
+              "image": "http://dummyimage.com/600x600.jpg/ff4444/ffffff"
+            },
+            {
+              "id": 812,
+              "price": 67.75,
+              "name": "Anchovy Fillets",
+              "image": "http://dummyimage.com/600x600.jpg/cc0000/ffffff"
+            }
+          ],
+          "id": 3
+        }
+      ],
+      "cards": [
+        {
+          "hash": 1936142,
+          "type": "credit",
+          "name": "Ivan",
+          "lastName": "Espínola",
+          "content": 300,
+          "validData": "19/04/2020"
+        }
+      ],
+      "id": 1
     }
   ],
   "products": [

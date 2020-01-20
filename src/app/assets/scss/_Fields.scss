@@ -5,19 +5,21 @@ form {
 
     &.field-group {
         margin-bottom: 1rem;
+        display: flex;
         
         > div {
-            flex: 0 0 100%;
+            flex: 1 0 auto;
             max-width: 100%;
             display: block;
             margin-left: 15px;
             margin-right: 15px;
 
-            >label {
+            >label,
+            >small {
                 display: block;
                 font-size: .735rem;
                 letter-spacing: 1px;
-                margin-bottom: 0;
+                margin-bottom: .25rem;
             }
 
             &:not(:only-child) {
@@ -27,25 +29,11 @@ form {
         }
     }
 
-    >.error {
-        flex: 0 0 100%;
-        max-width: 100%;
-        margin: 10px auto;
-
-        span {
-            text-transform: uppercase;
-            letter-spacing: .04rem;
-            font-size: $font-small;
-            font-weight: bold;
-            text-align: center;
-            color: $secondary;
-        }
-    }
-
     textarea,
     input {
         width: 100%;
-        color: $font-color;
+        color: $primary;
+        font-weight: $font-bold;
         font-size: $font-medium;
         line-height: normal;
         text-align: left;
@@ -84,11 +72,24 @@ form {
         }
     }
 
+    >.error {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin: 10px auto;
+
+        span {
+            text-transform: uppercase;
+            letter-spacing: .04rem;
+            font-size: $font-small;
+            font-weight: bold;
+            text-align: center;
+            color: $secondary;
+        }
+    }
+
     & .description {
-        border-bottom: 1px groove transparentize($white, .65);
         display: block;
-        padding: 15px;
-        margin-bottom: 15px;
+        margin-bottom: 35px;
         font-size: small;
         text-transform: lowercase;
         letter-spacing: 1px;

@@ -1,83 +1,81 @@
 {
-  "name": "test-todo-card",
-  "version": "1.0.0",
-  "description": "Teste Todo cartoes - front-end",
-  "private": false,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/i-espinola/test-todo-card.git"
-  },
-  "bugs": {
-    "url": "https://github.com/i-espinola/test-todo-card/issues"
-  },
-  "readme": "https://github.com/i-espinola/test-todo-card#readme",
-  "license": "MIT",
-  "main": "server/index.js",
-  "homepage": ".",
-  "scripts": {
-    "clean": "rm -rf build package-lock.json npm-debug.log server/logs/*",
-    "build": "npm run clean && react-scripts build",
-    "local": "rm -rf /var/www/localServer/public/* && cp -R ./* /var/www/localServer/public/ && cd /var/www/localServer/public/ && npm run build && node /var/www/localServer/backend/server.js",
-    "back": "json-server --watch database/db.json --port 3030",
-    "stop": "pm2 stop ecosystem.config.js && pm2 delete ecosystem.config.js",
-    "start": "npm run build && pm2-runtime start ecosystem.config.js --env production",
-    "eject": "react-scripts eject",
-    "test": "react-scripts test",
-    "dev": "react-app-rewired start",
-    "lint-check": "eslint . --ext=js,jsx; exit 0",
-    "lint-fix": "eslint . --ext=js,jsx --fix;  exit 0"
-  },
-  "dependencies": {
-    "@material-ui/core": "^4.8.0",
-    "antd": "^3.26.5",
-    "axios": "^0.19.0",
-    "babel-plugin-import": "^1.13.0",
-    "bootstrap": "^4.4.1",
-    "crypto-js": "^3.1.9-1",
-    "customize-cra": "^0.9.1",
-    "express": "^4.17.1",
-    "express-favicon": "^2.0.1",
-    "font-awesome": "^4.7.0",
-    "json-server": "^0.15.1",
-    "less": "^3.10.3",
-    "less-loader": "^5.0.0",
-    "node-rsa": "^1.0.7",
-    "node-sass": "^4.13.0",
-    "pm2": "^4.2.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-app-rewired": "^2.1.5",
-    "react-dom": "^16.12.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0"
-  },
-  "devDependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^7.1.2",
-    "@typescript-eslint/eslint-plugin": "^2.12.0",
-    "@typescript-eslint/parser": "^2.12.0",
-    "eslint": "^6.7.2",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-standard": "^4.0.1"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "test-todo-card",
+    "version": "1.0.0",
+    "description": "Teste Todo cartoes - front-end",
+    "private": false,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/i-espinola/test-todo-card.git"
+    },
+    "bugs": {
+        "url": "https://github.com/i-espinola/test-todo-card/issues"
+    },
+    "readme": "https://github.com/i-espinola/test-todo-card#readme",
+    "license": "MIT",
+    "main": "server/index.js",
+    "homepage": ".",
+    "scripts": {
+        "clean": "rm -rf build package-lock.json npm-debug.log server/logs/*",
+        "build": "npm run clean && react-scripts build",
+        "back": "json-server --watch database/db.json --port 3030",
+        "stop": "pm2 stop ecosystem.config.js && pm2 delete ecosystem.config.js",
+        "start": "npm run build && pm2-runtime start ecosystem.config.js --env production",
+        "eject": "react-scripts eject",
+        "test": "react-scripts test",
+        "dev": "react-app-rewired start",
+        "lint-check": "eslint . --ext=js,jsx; exit 0",
+        "lint-fix": "eslint . --ext=js,jsx --fix;  exit 0"
+    },
+    "dependencies": {
+        "antd": "^3.26.5",
+        "axios": "^0.19.0",
+        "babel-plugin-import": "^1.13.0",
+        "bootstrap": "^4.4.1",
+        "customize-cra": "^0.9.1",
+        "express": "^4.17.1",
+        "express-favicon": "^2.0.1",
+        "json-server": "^0.15.1",
+        "less": "^3.10.3",
+        "less-loader": "^5.0.0",
+        "node-rsa": "^1.0.7",
+        "node-sass": "^4.13.0",
+        "pm2": "^4.2.1",
+        "prop-types": "^15.7.2",
+        "react": "^16.12.0",
+        "react-app-rewired": "^2.1.5",
+        "react-dom": "^16.12.0",
+        "react-loading-skeleton": "^1.3.0",
+        "react-router-dom": "^5.1.2",
+        "react-scripts": "3.3.0"
+    },
+    "devDependencies": {
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.4.0",
+        "@testing-library/user-event": "^7.1.2",
+        "@typescript-eslint/eslint-plugin": "^2.16.0",
+        "@typescript-eslint/parser": "^2.16.0",
+        "eslint": "^6.8.0",
+        "eslint-config-standard": "^14.1.0",
+        "eslint-plugin-import": "^2.20.0",
+        "eslint-plugin-node": "^11.0.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-react": "^7.18.0",
+        "eslint-plugin-react-hooks": "^2.3.0",
+        "eslint-plugin-standard": "^4.0.1"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
 }

@@ -119,15 +119,15 @@ button {
         flex: 1;
 
         &.primary {
-            background: transparentize($primary, .2);
-            border: 1px solid transparentize($primary, .2);
+            background: transparentize($gray-500, .1);
+            border: 1px solid transparentize($gray-500, .1);
             color: $white;
         }
 
         &.secondary {
-            border: 1px solid $gray-600;
+            border: 1px solid $gray-500;
             background: transparent;
-            color: $gray-600;
+            color: $gray-500;
         }
 
         &.primary-light {
@@ -161,9 +161,9 @@ button {
             box-shadow: none;
             
             +button {
-                border-color: $gray-600;
+                border-color: $gray-500;
                 background: transparent;
-                color: $gray-600;
+                color: $gray-500;
             }            
         }
     }

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import '../assets/scss/_Brand.scss'
 
 //Image
-import Brand from '../assets/images/brand.svg'
+import Brand from '../assets/images/brand_white.svg'
 
 export default (props) => (
     <aside className='brand'>

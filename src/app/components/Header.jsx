@@ -1,13 +1,16 @@
-﻿import React from 'react'
+﻿// Dependency
+import React from 'react'
 
 // Style
 import '../assets/scss/_Header.scss'
 
-// Components Childs
+// Components Children
 import Brand from './Brand'
 
-export default () => (
-    <header>
+const Header = (props) => (
+    <div className="header">
         <Brand />
-    </header>
+    </div>
 )
+
+export default Header

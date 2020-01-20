@@ -1,7 +1,7 @@
-﻿$primary: #2948ff;
-$secondary: #e2076a;
+﻿$primary: #007aff;
+$secondary: #ff2d55;
 
-$blue: #007bff;
+$blue: #007aff;
 $indigo: #6610f2;
 $purple: #6f42c1;
 $pink: #e83e8c;
@@ -35,9 +35,9 @@ $gray-light: $gray-400;
 $gray: #8d8d8d;
 $gray-dark: $gray-700;
 
-$gradient: linear-gradient(45deg, #2948ff 0, #007bff 100%);
-$gradient-card: linear-gradient(to right bottom, #ed1650, #ff790b);
-$gradient-card-flip: linear-gradient(to right top, #ff790b, #ed1650);
+$gradient: linear-gradient(87deg, #5ac8fa 0, #007aff 100%);
+$gradient-card: linear-gradient(to right bottom, #e83e8c, #007aff);
+$gradient-card-flip: linear-gradient(to right top, #007aff, #e83e8c);
 
 $breakpoint-xs: 0;
 $breakpoint-sm: 576px;

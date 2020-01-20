@@ -19,8 +19,10 @@
         border-bottom: 1px groove transparentize($white, .65);
 
         h1 {
+            color: $font-color;
             font-weight: 100;
             margin: 0;
+
         }
 
         span {
@@ -35,6 +37,10 @@
         margin-right: auto;
         margin-left: auto;
         box-sizing: border-box;
+        
+        h1 {
+            color: $font-color;
+        }
 
         &.no-padding {
             padding: 0;
