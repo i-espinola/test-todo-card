@@ -12,13 +12,13 @@
     },
     "readme": "https://github.com/i-espinola/test-todo-card#readme",
     "license": "MIT",
-    "main": "server/express.js",
+    "main": "server/index.js",
     "homepage": ".",
     "scripts": {
         "clean": "rm -rf build package-lock.json npm-debug.log server/logs/*",
         "build": "npm run clean && react-scripts build",
         "dev": "react-app-rewired start",
-        "start": "npm run build && node server/express.js"
+        "start": "npm run build && node server/index.js"
     },
     "dependencies": {
         "antd": "^3.26.5",
