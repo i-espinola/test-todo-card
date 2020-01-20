@@ -23,12 +23,12 @@ module.exports = {
 				NODE_ENV: 'production',
 			},
 		},
-		{
-			name: 'api-app',
-			script: './server/api.js',
-			instances: 1,
-			exec_mode: 'cluster',
-		},
+		// {
+		// 	name: 'api-app',
+		// 	script: './server/api.js',
+		// 	instances: 1,
+		// 	exec_mode: 'cluster',
+		// },
 	],
 
 	// To auto deploy with PM2
