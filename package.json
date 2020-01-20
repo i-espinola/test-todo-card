@@ -17,8 +17,8 @@
     "scripts": {
         "clean": "rm -rf build package-lock.json npm-debug.log server/logs/*",
         "build": "npm run clean && react-scripts build",
-        "start": "npm run build && node server/express.js",
-        "dev": "react-app-rewired start"
+        "dev": "react-app-rewired start",
+        "start": "npm run build && node server/express.js"
     },
     "dependencies": {
         "antd": "^3.26.5",
