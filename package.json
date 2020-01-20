@@ -18,7 +18,9 @@
         "clean": "rm -rf build package-lock.json npm-debug.log server/logs/*",
         "build": "npm run clean && react-scripts build",
         "dev": "react-app-rewired start",
-        "start": "npm run build && node server/index.js"
+        "back": "json-server --watch database/db.json --port 3030",
+        "stop": "pm2 stop ecosystem.config.js && pm2 delete ecosystem.config.js",
+        "start": "npm run build && pm2-runtime start ecosystem.config.js --env production"
     },
     "dependencies": {
         "antd": "^3.26.5",
@@ -33,6 +35,7 @@
         "less-loader": "^5.0.0",
         "node-rsa": "^1.0.7",
         "node-sass": "^4.13.1",
+        "pm2": "^4.2.2",
         "prop-types": "^15.7.2",
         "react": "^16.12.0",
         "react-app-rewired": "^2.1.5",
