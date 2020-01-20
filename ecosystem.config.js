@@ -3,16 +3,18 @@ module.exports = {
 		{
 			name: 'APP Todo-card',
 			script: './server/index.js',
-
+			
 			// Options reference: https://pm2.keymetrics.io/docs/usage/application-declaration/
 			// instances: 1,
 			// time: true,
 			// watch: true,
 			instances: 'max',
-			autorestart: true,
+			// autorestart: true,
 			// max_memory_restart: '512M',
 
 			// LOGS
+			// out_file: './server/logs/out.log',
+			// error_file: './server/logs/err.log',
 			log_file: './server/logs/combined.log',
 
 			// Envs
@@ -23,12 +25,6 @@ module.exports = {
 				NODE_ENV: 'production',
 			},
 		},
-		// {
-		// 	name: 'api-app',
-		// 	script: './server/api.js',
-		// 	instances: 1,
-		// 	exec_mode: 'cluster',
-		// },
 	],
 
 	// To auto deploy with PM2
