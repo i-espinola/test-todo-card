@@ -16,7 +16,7 @@ import Brand from '../../assets/images/brand_white.svg'
 
 const RenderCard = (props) =>
 {
-    const apiQuery = 'http://localhost:3030/clients?id='
+    const apiQuery = 'https://todo-cartoes-api.herokuapp.com/clients?id='
     const [ cardCredit, setCardCredit ] = useState(false)
     const [ notFound, setNotFound ] = useState(false)
     const [ loader, setLoader ] = useState(false)
