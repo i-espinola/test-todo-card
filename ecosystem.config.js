@@ -27,12 +27,12 @@ module.exports = {
 	deploy: {
 		production: {
 			user: 'node',
-			host: '0.0.0.0.',
+			host: 'https://todo-cartoes.herokuapp.com',
 			ref: 'origin/master',
 			repo: 'git@github.com/i-espinola/test-todo-card.git',
 			path: '/build',
 			'post-deploy':
 				'npm install && pm2 reload ecosystem.config.js --env production',
-			},
 		},
+	},
 }
