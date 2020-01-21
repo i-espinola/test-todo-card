@@ -15,11 +15,11 @@
     "main": "server/index.js",
     "homepage": ".",
     "scripts": {
+        "stop": "pm2 stop ecosystem.config.js && pm2 delete ecosystem.config.js",
         "clean": "rm -rf build package-lock.json npm-debug.log server/logs/*",
         "build": "npm run clean && react-scripts build",
         "dev": "react-app-rewired start",
-        "back": "json-server --watch database/db.json --port 3030",
-        "stop": "pm2 stop ecosystem.config.js && pm2 delete ecosystem.config.js",
+        "api": "node server/api.js",
         "postinstall": "npm run build",
         "start": "pm2-runtime start ecosystem.config.js --env production"
     },

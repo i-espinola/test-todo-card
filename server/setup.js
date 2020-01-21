@@ -1,15 +1,20 @@
 const setup = {
+	api: {
+		port: process.env.PORT || 3030,
+		file: 'database/db.json',
+		endpoint: '/api'
+	},
 	path: process.env.INIT_CWD || __dirname,
 	file: '/index.html',
 	public: '/build',
 	request: '/*',
 	port: process.env.PORT || 3000,
-	portApi: process.env.PORT || 3030,
 	headers: {
 		accept: 'application/json',
 		'Access-Control-Allow-Origin': '*',
 		'Access-Control-Allow-Methods': 'GET',
-		'Access-Control-Allow-Headers':	'Origin, X-Requested-With, Content-Type, Accept',
+		'Access-Control-Allow-Headers':
+			'Origin, X-Requested-With, Content-Type, Accept',
 	},
 	banner: '\nExpress server run in port',
 	favicon: '/build/favicon.ico',
