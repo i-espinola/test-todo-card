@@ -5,21 +5,21 @@ module.exports = {
 			script: './server/express.js',
 
 			// Options reference: https://pm2.keymetrics.io/docs/usage/application-declaration/
-			instances: 1,
 			// time: true,
 			// watch: true,
-			// instances: 'max',
 			// autorestart: true,
-			// max_memory_restart: '512M',
+			instances: 1,
+			// instances: "max",
+			max_memory_restart: '512M',
 
 			// LOGS
 			log_file: './server/logs/combined.log',
-		},
-		{
-			name: 'API Todo-card',
-			script: './server/api.js',
-			instances: 1,
-			exec_mode: 'cluster',
+			env: {
+			  NODE_ENV: "development",
+			},
+			env_production: {
+			  NODE_ENV: "production",
+			}
 		},
 	],
 
@@ -27,7 +27,7 @@ module.exports = {
 	deploy: {
 		production: {
 			user: 'node',
-			host: 'https://todo-cartoes.herokuapp.com',
+			host: '192.168.0.12',
 			ref: 'origin/master',
 			repo: 'git@github.com/i-espinola/test-todo-card.git',
 			path: '/build',

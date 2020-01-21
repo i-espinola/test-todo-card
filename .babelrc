@@ -1,12 +1,12 @@
-{
-	"plugins": [
-		[
-			"import",
-			{
-				"libraryName": "antd",
-				"libraryDirectory": "es",
-				"style": true // `style: true` for less
-			}
-		]
-	]
-}
+// {
+// 	"plugins": [
+// 		[
+// 			"import",
+// 			{
+// 				"libraryName": "antd",
+// 				"libraryDirectory": "es",
+// 				"style": false // `style: true` for less
+// 			}
+// 		]
+// 	]
+// }

@@ -16,7 +16,7 @@ const setup = {
 		'Access-Control-Allow-Headers':
 			'Origin, X-Requested-With, Content-Type, Accept',
 	},
-	banner: '\nExpress server run in port',
+	banner: '\nExpress server run\n',
 	favicon: '/build/favicon.ico',
 	status200: {
 		code: 200,

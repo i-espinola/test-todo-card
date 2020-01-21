@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom'
 import App from './app'
 import * as serviceWorker from './serviceWorker'
 
-// Style
+// Styles
+import 'antd/dist/antd.css'
 import './app/assets/scss/Main.scss';
 
 ReactDOM.render(<App />, document.getElementById('root'))
