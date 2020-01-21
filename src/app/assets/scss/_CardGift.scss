@@ -1,144 +1,148 @@
 @import 'Variables';
 
-.card-gift {
-    width: 400px;
-    margin: 15px;
-    height: 250px;
-    position: relative;
-    border-radius: $radius;
-    box-sizing: content-box;
-    -webkit-perspective: 800;
-    -moz-perspective: 800;
-    -ms-perspective: 800;
-    -o-perspective: 800;
-    perspective: 800;
+body {
+    background: $white !important;
 
-    .card {
-        width: 100%;
-        height: 100%;
-        transition: 0.5s;
-        border: none;
-        border-radius: 1rem;
-        -o-transition: 0.5s;
-        -ms-transition: 0.5s;
-        -moz-transition: 0.5s;
-        -webkit-transition: 0.5s;
-        transform-style: preserve-3d;
-        -o-transform-style: preserve-3d;
-        -ms-transform-style: preserve-3d;
-        -moz-transform-style: preserve-3d;
-        -webkit-transform-style: preserve-3d;
+        .card-gift {
+        width: 400px;
+        margin: 15px;
+        height: 250px;
+        position: relative;
+        border-radius: $radius;
+        box-sizing: content-box;
+        -webkit-perspective: 800;
+        -moz-perspective: 800;
+        -ms-perspective: 800;
+        -o-perspective: 800;
+        perspective: 800;
 
-        &.flipped {
-            transform:rotatey(-180deg);
-            -o-transform:rotatey(-180deg);
-            -ms-transform:rotatey(-180deg);
-            -moz-transform:rotatey(-180deg);
-            -webkit-transform:rotatey(-180deg);
-        }
-    
-        .side {
-            z-index: 2;
+        .card {
             width: 100%;
             height: 100%;
-            padding: 15px;
-            cursor: pointer;
-            overflow: hidden;
-            position: absolute;
-            flex-direction: column;
-            box-sizing: border-box;
-            backface-visibility: hidden; 
-            -o-backface-visibility: hidden;
-            -ms-backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-            box-shadow: 0 0 10px 2px transparentize($gray-800, 0.3);
-        }
+            transition: 0.5s;
+            border: none;
+            border-radius: 1rem;
+            -o-transition: 0.5s;
+            -ms-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -webkit-transition: 0.5s;
+            transform-style: preserve-3d;
+            -o-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
 
-        .front {
-            font-size: 3em;
-            background: $gradient-card;
-            color: white;
-            border-radius: $radius-card;
-        }
-
-        .back {
-            background: $gradient-card-flip;
-            border-radius: $radius-card;
-            color: black;
-            font-size: 2em;
-            transform:rotatey(-180deg);
-            -o-transform:rotatey(-180deg);
-            -ms-transform:rotatey(-180deg);
-            -moz-transform:rotatey(-180deg);
-            -webkit-transform:rotatey(-180deg);
-
-            .bar-black {
-                background: $black;
-                width: 100%;
-                height: 50px;
+            &.flipped {
+                transform:rotatey(-180deg);
+                -o-transform:rotatey(-180deg);
+                -ms-transform:rotatey(-180deg);
+                -moz-transform:rotatey(-180deg);
+                -webkit-transform:rotatey(-180deg);
             }
-    
-            .bar-white {
-                border-radius: 0.2rem;
-                background: $white;
-                margin: 20px 30px;
+        
+            .side {
+                z-index: 2;
                 width: 100%;
-                height: 30px;
+                height: 100%;
+                padding: 15px;
+                cursor: pointer;
+                overflow: hidden;
+                position: absolute;
+                flex-direction: column;
+                box-sizing: border-box;
+                backface-visibility: hidden; 
+                -o-backface-visibility: hidden;
+                -ms-backface-visibility: hidden;
+                -moz-backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+                box-shadow: 0 0 10px 2px transparentize($gray-800, 0.3);
+            }
 
-                &.msg {
-                    font-size: .6rem;
-                    padding: .5rem;
+            .front {
+                font-size: 3em;
+                background: $gradient-card;
+                color: white;
+                border-radius: $radius-card;
+            }
+
+            .back {
+                background: $gradient-card-flip;
+                border-radius: $radius-card;
+                color: black;
+                font-size: 2em;
+                transform:rotatey(-180deg);
+                -o-transform:rotatey(-180deg);
+                -ms-transform:rotatey(-180deg);
+                -moz-transform:rotatey(-180deg);
+                -webkit-transform:rotatey(-180deg);
+
+                .bar-black {
+                    background: $black;
+                    width: 100%;
+                    height: 50px;
+                }
+        
+                .bar-white {
+                    border-radius: 0.2rem;
+                    background: $white;
+                    margin: 20px 30px;
+                    width: 100%;
+                    height: 30px;
+
+                    &.msg {
+                        font-size: .6rem;
+                        padding: .5rem;
+                    }
                 }
             }
-        }
 
 
-        .brand {
-            width: 2em;
-        }
-
-        .middle {
-            line-height: 1.3rem;
-
-            label {
-            font-size: 1.5rem;
-            display: block;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-align: center;
-            font-weight: 100;
+            .brand {
+                width: 2em;
             }
 
-            span {
-                font-size: 1.7rem;
-            }
-        }
-        
-        .footer {
-            
-            label {
-                font-size: $font-small;
-                display: block;
-                margin: 0;
-            }
-            
-            span {
-                font-size: $font-medium;
-                line-height: $font-medium;
-                font-weight: bold;
-                display: block;
-            }
-            
-            & :last-child {
+            .middle {
+                line-height: 1.3rem;
 
                 label {
-                    font-size: $font-small;
+                font-size: 1.5rem;
+                display: block;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                text-align: center;
+                font-weight: 100;
                 }
 
                 span {
+                    font-size: 1.7rem;
+                }
+            }
+            
+            .footer {
+                
+                label {
                     font-size: $font-small;
-                    font-weight: 100;
+                    display: block;
+                    margin: 0;
+                }
+                
+                span {
+                    font-size: $font-medium;
+                    line-height: $font-medium;
+                    font-weight: bold;
+                    display: block;
+                }
+                
+                & :last-child {
+
+                    label {
+                        font-size: $font-small;
+                    }
+
+                    span {
+                        font-size: $font-small;
+                        font-weight: 100;
+                    }
                 }
             }
         }
