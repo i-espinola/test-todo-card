@@ -65,7 +65,7 @@ class ManagerCards extends React.Component
 	*/
 	cardsRender = (item) => { 
 
-		const linkCard = `/my-card${ this.props.topData.user.id }/${ item.hash }`
+		const linkCard = `/my-card/${ this.props.topData.user.id }/${ item.hash }`
 		const typeCard = typeof (item.content) === 'number' ? 'Cartão crédito' : 'Cartão lista'  
 		return (
             <List.Item>
