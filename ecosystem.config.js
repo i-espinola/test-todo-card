@@ -5,9 +5,9 @@ module.exports = {
 			script: './server/express.js',
 			// time: true,
 			// watch: true,
-			// instances: 1,
-			instances: "max",
-			autorestart: true,
+			// instances: "max",
+			// autorestart: true,
+			instances: 1,
 			max_memory_restart: '512M',
 
 			// LOGS
