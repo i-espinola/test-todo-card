@@ -17,5 +17,5 @@ app.get(setup.request, (req, res) => {
 // Start Serve
 const server = http.createServer(app)
 server.listen(setup.port, () => {
-	console.log(`${setup.banner} - port: ${setup.port}`)
+	console.log(setup.banner + setup.port)
 })

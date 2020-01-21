@@ -16,5 +16,5 @@ api.use(bodyParser.urlencoded({ extended: true }))
 
 api.use(setup.api.endPoint, router)
 api.listen(setup.api.portApi, () => {
-	console.log(`${setup.api.bannerApi}\n Port:' ${setup.api.portApi}`)
+	console.log(setup.api.bannerApi + setup.api.portApi)
 })
