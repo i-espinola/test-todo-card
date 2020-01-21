@@ -14,8 +14,8 @@ const select = (props) =>
                 <h1>{ props.createData.stepsDescription[props.createData.stepActive] }</h1>
             </div>
         </div>
-        <div className="row">
-            <div className="col mt-4 d-flex justify-content-center">
+        <div className="row justify-content-center">
+            <div className="col-auto mt-4 d-flex justify-content-center">
                 <Card
                     className="type-card"
                     onClick={ () => props.createFlow({ cardCredit: !props.createData.cardCredit }) }
@@ -31,7 +31,7 @@ const select = (props) =>
                         até que o valor total do cartão seja esgotado.</p>
                 </Card>
             </div>
-            <div className="col mt-4 d-flex justify-content-center">
+            <div className="col-auto mt-4 d-flex justify-content-center">
                 <Card
                     className="type-card"
                     onClick={ () => props.createFlow({ cardList: !props.createData.cardList }) }
