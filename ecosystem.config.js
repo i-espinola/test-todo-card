@@ -8,8 +8,8 @@ module.exports = {
 			// time: true,
 			// watch: true,
 			// autorestart: true,
-			// instances: 1,
-			instances: 'max',
+			instances: 1,
+			// instances: 'max',
 			max_memory_restart: '512M',
 
 			// LOGS
