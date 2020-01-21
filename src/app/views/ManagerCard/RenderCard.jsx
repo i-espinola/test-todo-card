@@ -66,15 +66,6 @@ const RenderCard = (props) =>
             status="404"
             title="Cartão não encontrado ou não existe."
             subTitle="Por favor, verifique se o link do seu cartão esta correto."
-            extra={
-                <button
-                    type="button"
-                    className="default"
-                    onClick={ () => props.history.goBack() }
-                >
-                    Voltar
-            </button>
-            }
         />
     )
 
