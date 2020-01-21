@@ -80,7 +80,7 @@ const CheckCard = (props) =>
                 >
                     {
                         props.createData.cardCredit
-                            ? <Descriptions.Item label="Valor de cartão">{ currencyFormat(props.createData.value) }</Descriptions.Item>
+                            ? <Descriptions.Item label="Valor do cartão">{ currencyFormat(props.createData.value) }</Descriptions.Item>
                             : listDescriptions(props)
                     }
                     <Descriptions.Item label="Tipo de cartão">{ typeCard }</Descriptions.Item>
