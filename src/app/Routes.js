@@ -25,60 +25,30 @@ const Routes = (props) =>
 			<Route
 				exact
 				path="/login"
-				render={() => (
-					<Login topData={props.topData} topFlow={props.topFlow} />
-				)}
+				render={() => ( <Login topData={props.topData} topFlow={props.topFlow} /> )}
 			/>
 			<Route
 				path="/dashboard"
-				render={() => (
-					<Dashboard
-						topData={props.topData}
-						topFlow={props.topFlow}
-					/>
-				)}
+				render={() => ( <Dashboard topData={ props.topData } topFlow={ props.topFlow } /> )}
 			/>
 			<Route
 				path="/cards"
-				render={() => (
-					<ManagerCard
-						topData={props.topData}
-						topFlow={props.topFlow}
-					/>
-				)}
+				render={() => ( <ManagerCard topData={ props.topData } topFlow={ props.topFlow } /> )}
 			/>
 			<Route
 				path="/create-card"
-				render={() => (
-					<CreateCard
-						topData={props.topData}
-						topFlow={props.topFlow}
-					/>
-				)}
+				render={() => ( <CreateCard topData={ props.topData } topFlow={ props.topFlow } /> )}
 			/>
 			<Route
 				path="/lists"
-				render={() => (
-					<ManagerList
-						topData={props.topData}
-						topFlow={props.topFlow}
-					/>
-				)}
+				render={() => ( <ManagerList topData={ props.topData } topFlow={ props.topFlow } /> )}
 			/>
 			<Route
 				path="/create-list"
-				render={() => (
-					<CreateList
-						topData={props.topData}
-						topFlow={props.topFlow}
-					/>
-				)}
+				render={() => ( <CreateList topData={ props.topData } topFlow={ props.topFlow } /> )}
 			/>
 			<Route path="/checkout-card" render={() => <CheckoutCard />} />
-			<Route
-				path="/my-card/:userId/:cardHash"
-				render={() => <RenderCard />}
-			/>
+			<Route path="/my-card/:userId/:cardHash" render={() => <RenderCard />} />
 			<Redirect from="*" to={ authenticated ? '/dashboard' : '/login' } />
 		</Switch>
 	)
