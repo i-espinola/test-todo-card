@@ -43,8 +43,7 @@ Para construir a aplicação em modo producão, execute o seguinte comando:
 
 Levando em consideração que menos é mais(code clean), acredito que não seja necessário a implementação de uma dependência como Redux nesta aplicação, visando mantê-la mais enxuta possível em todos os níveis. Até cogitei implementar a metodologia Flux, para que os componentes pudessem se comunicar entre si, mas ao invés disso, utilizei as técnicas de fluxo de dados unidirecional(one-way data flow) do React mantendo tudo rápido e fluído. Fazendo uma analogia, é como se a arquitetura da aplicação fosse uma fonte de água, onde o fluxo de água escorre de cima para baixo(elevate state). Tudo aqui é dividido, componentes e folhas de estilos e suas respectivas responsabilidades, ou seja, cada parte da aplicacão, por menor que seja, foi componentizada/modularizada, tanto os arquivos .jsx quanto os .scss.
 
-Esta aplicação depende da api que é responsável em server a aplicação em questão com os dados de produtos, usuários, cartões e listas de usuários. Desta forma foi utilizado um dependência
-chamada JSON-sever, que simula uma API RESTFUL. o endpoint da API é: [https://todo-cartoes-api.herokuapp.com/api](https://todo-cartoes-api.herokuapp.com/api)
+Esta aplicação depende da api que é responsável em servir a aplicação em questão com os dados de produtos, usuários, cartões e listas de usuários. Desta forma, foi utilizado uma dependência chamada JSON-server, que simula uma API RESTFUL. o endpoint da API é: [https://todo-cartoes-api.herokuapp.com/api](https://todo-cartoes-api.herokuapp.com/api)
 
 Eu fiz um deploy da aplicação na plataforma Heroku. Para acessar a aplicação em modo produção e online, basta acessar o seguinte link abaixo.
 
