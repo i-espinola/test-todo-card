@@ -36,7 +36,7 @@ const initForm = {
     validData: '',
     lastName: '',
     name: '',
-    value: 0,
+    value: 300,
     lists: {},
 }
 
