@@ -15,7 +15,7 @@ const Stages = (props) => {
 				? <Steps progressDot current={ props.active }>
 					{
 						props.titles.map((title, index) =>
-							<Step key={ index } title={ title } />
+							<Step key={ index } title={ title } description={ props.subtitles[index] } />
 						)
 					}
 				</Steps>

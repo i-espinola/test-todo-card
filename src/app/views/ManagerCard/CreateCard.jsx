@@ -24,7 +24,7 @@ const initState = {
 const initStep = {
     stepActive: 0,
     stepsTitles: ['Seleção', 'Criar', 'Confirmação'],
-    stepsDescription: ['Selecione o tipo de cartão', 'Configure o cartão', 'Confirme os dados'],
+    stepsSubtitles: ['Tipo de cartão', 'Configuração', 'Checagem de dados'],
 }
 
 const initCardType = {
@@ -213,7 +213,7 @@ class Create extends React.Component
     render = () => (
         <Layout>
             <div className="content-head">
-                <Steps active={ this.state.stepActive } titles={ this.state.stepsTitles } />
+                <Steps active={ this.state.stepActive } titles={ this.state.stepsTitles } subtitles={ this.state.stepsSubtitles } />
             </div>
             <div className="content-body">
                 <div className="row d-flex align-items-center">

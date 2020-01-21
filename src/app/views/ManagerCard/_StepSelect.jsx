@@ -11,7 +11,7 @@ const select = (props) =>
     <React.Fragment>
         <div className="row text-center">
             <div className="col mt-2 mb-4">
-                <h1>{ props.createData.stepsDescription[props.createData.stepActive] }</h1>
+                <h1>Selecione o tipo de cartão gift</h1>
             </div>
         </div>
         <div className="row justify-content-center">
@@ -53,8 +53,6 @@ const select = (props) =>
 select.propType = {
     createFlow: PropTypes.func.isRequired,
     createData: PropTypes.shape({
-        stepsDescription: PropTypes.array.isRequired,
-        stepActive: PropTypes.number.isRequired,
         cardList: PropTypes.bool.isRequired,
         cardCredit: PropTypes.bool.isRequired,
     }).isRequired

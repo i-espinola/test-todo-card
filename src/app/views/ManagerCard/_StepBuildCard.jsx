@@ -18,8 +18,6 @@ class BuildCard extends React.Component
     static propType = {
         createFlow: PropTypes.func.isRequired,
         createData: PropTypes.shape({
-            stepsDescription: PropTypes.array.isRequired,
-            stepActive: PropTypes.number.isRequired,
             name: PropTypes.string.isRequired,
             lastName: PropTypes.string.isRequired,
             value: PropTypes.number.isRequired,
@@ -123,7 +121,7 @@ class BuildCard extends React.Component
         <React.Fragment>
             <div className="row text-center">
                 <div className="col mt-2 mb-4">
-                    <h1>{ this.props.createData.stepsDescription[this.props.createData.stepActive] }</h1>
+                    <h1>Configuração de conteúdo</h1>
                 </div>
             </div>
             <div className="row d-flex align-items-center">

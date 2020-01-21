@@ -97,7 +97,7 @@ const CheckCard = (props) =>
         <React.Fragment>
             <div className="row text-center">
                 <div className="col mt-2 mb-4">
-                    <h1>Confirme os dados do cartão</h1>
+                    <h1>Confirmação dos dados</h1>
                 </div>
             </div>
             <div className="row text-center d-flex align-items-center">

@@ -383,7 +383,7 @@ class CreateList extends React.Component
                             type='button'
                             onClick={ () => { this.props.history.goBack() } }
                         >
-                            voltar
+                            Voltar
                             </button>
                         <button
                             className='primary'
