@@ -3,11 +3,13 @@ module.exports = {
 		{
 			name: 'APP Todo-card',
 			script: './server/express.js',
+
+			// Options reference: https://pm2.keymetrics.io/docs/usage/application-declaration/
 			// time: true,
 			// watch: true,
-			// instances: "max",
 			// autorestart: true,
 			instances: 1,
+			// instances: "max",
 			max_memory_restart: '512M',
 
 			// LOGS
@@ -20,4 +22,5 @@ module.exports = {
 			}
 		},
 	],
+
 }
