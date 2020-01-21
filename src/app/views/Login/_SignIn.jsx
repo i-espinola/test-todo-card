@@ -11,7 +11,6 @@ import Brand from '../../assets/images/brand.svg'
 const initState = {
     title: 'Login',
     discription: 'Campos obrigatórios são marcados com *',
-    loader: false,
     form: {
         login: '',
         pwd: ''
@@ -72,31 +71,32 @@ export default class SignIn extends React.Component
     /**
      * @param {{ preventDefault: () => void; }} e
      */
-    formSubmit = (e) =>
+    formSubmit = async (e) =>
     {
         e.preventDefault()
+        await this.props.loginFlow({ loader: true })
+        const queryApi = `${ this.props.loginData.api }clients?login=${ this.state.form.login }`
         if (this.state.form.login && this.state.form.pwd)
         {
-            this.setState({ loader: true })
-            Axios.get(`${ this.props.loginData.api }clients?login=${ this.state.form.login }`)
+            await Axios.get(queryApi)
                 .then(res =>
                 {
                     const user = res.data[0]
-                    if (user.password === this.state.form.pwd)
+                    if (!res.data.length)
+                        this.setState(prevState => ({
+                            error: { ...prevState.error, login: true }
+                        }))
+                    else if (user.password === this.state.form.pwd)
                     {
                         sessionStorage.setItem('id', user.id)
                         this.props.loginFlow({ user: user })
                     }
-                    else if (!res.data.length)
-                        this.setState(prevState => ({
-                            error: { ...prevState.error, login: true }
-                        }))
                     else if (user.password !== this.state.form.pwd)
                         this.setState(prevState => ({
                             error: { ...prevState.error, pwd: true }
                         }))
                 })
-            this.setState({ loader: false })
+            this.props.loginFlow({ loader: false })
         } else this.formEmpty()
     }
 
@@ -152,7 +152,7 @@ export default class SignIn extends React.Component
                 <button
                     type="button"
                     className='secondary'
-                    disabled={ this.state.loader }
+                    disabled={ this.props.loginData.loader }
                     onClick={ () => this.props.loginFlow({ register: true }) }
                 >
                     Criar conta
@@ -160,10 +160,10 @@ export default class SignIn extends React.Component
                 <button
                     type="submit"
                     className='primary'
-                    disabled={ this.state.loader }
-                    onClick={ (e) => this.props.loginFlow(({ loader: true }), this.formSubmit(e)) }
+                    disabled={ this.props.loginData.loader }
+                    onClick={ (e) => this.formSubmit(e) }
                 >
-                    { this.state.loader ? <Icon type="loading" style={ { fontSize: 24 } } spin /> : 'login' }
+                    { this.props.loginData.loader ? <Icon type="loading" style={ { fontSize: 24 } } spin /> : 'login' }
                 </button>
             </div>
         </form>

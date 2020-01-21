@@ -212,12 +212,8 @@ class Create extends React.Component
 
     render = () => (
         <Layout>
-            <div className="content-head d-flex align-items-center">
-                <div className="row">
-                <div className="col-auto">
-                        <Steps active={ this.state.stepActive } titles={ this.state.stepsTitles } />
-                </div>
-                </div>
+            <div className="content-head">
+                <Steps active={ this.state.stepActive } titles={ this.state.stepsTitles } />
             </div>
             <div className="content-body">
                 <div className="row d-flex align-items-center">
