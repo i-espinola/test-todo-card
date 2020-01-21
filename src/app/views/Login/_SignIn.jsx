@@ -161,7 +161,7 @@ export default class SignIn extends React.Component
                     type="submit"
                     className='primary'
                     disabled={ this.state.loader }
-                    onClick={ (e) => this.formSubmit(e) }
+                    onClick={ (e) => this.props.loginFlow(({ loader: true }), this.formSubmit(e)) }
                 >
                     { this.state.loader ? <Icon type="loading" style={ { fontSize: 24 } } spin /> : 'login' }
                 </button>

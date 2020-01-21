@@ -19,7 +19,7 @@ const CheckoutCard = (props) =>
 
     return (
         <Layout>
-            <div className="content-head d-flex align-items-center justify-content-center">
+            <div className="content-head text-center">
                 <h1>Cartão criado com sucesso!</h1>
             </div>
             <div className="content-body">

@@ -81,7 +81,7 @@ const RenderCard = (props) =>
     return (
         <Layout>
             <div className="row">
-                <div className="col d-flex align-items-center justify-content-center">
+                <div className="col">
                     { loader || !notFound ? cardRender() : cardNotFound() }
                 </div>
             </div>

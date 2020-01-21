@@ -109,6 +109,7 @@ export default class SignUp extends React.Component
      */
     formSubmit = async (e) =>
     {
+
         e.preventDefault()
         const valid = this.formValid() ? await this.validLogin() : false
 
@@ -129,6 +130,7 @@ export default class SignUp extends React.Component
                     this.props.loginFlow({ user: res.data })
                 })
         }
+        this.props.loginFlow({ loader: false })
     }
 
     /**
@@ -233,7 +235,7 @@ export default class SignUp extends React.Component
                     type="submit"
                     className='primary'
                     disabled={ this.props.loginData.loader }
-                    onClick={ (e) => this.formSubmit(e) }
+                    onClick={ (e) => this.props.loginFlow(({ loader: true }), this.formSubmit(e)) }
                 >
                     { this.props.loginData.loader ? <Icon type="loading" style={ { fontSize: 24 } } spin /> : 'Criar conta' }
                 </button>

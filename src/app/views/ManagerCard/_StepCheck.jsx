@@ -106,7 +106,7 @@ const CheckCard = (props) =>
                 </div>
             </div>
             <div className="row d-flex align-items-center">
-                <div className="col d-flex justify-content-center">
+                <div className="col">
                     <CardGift
                         brand={ Brand }
                         name={ props.createData.name }
