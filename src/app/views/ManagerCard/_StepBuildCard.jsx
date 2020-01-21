@@ -132,7 +132,7 @@ class BuildCard extends React.Component
                 </div>
             </div>
             <div className="row d-flex align-items-center">
-                <div className="col d-flex justify-content-center">
+                <div className="col">
                     <CardGift
                         brand={ Brand }
                         name={ this.props.createData.name }

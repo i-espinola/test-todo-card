@@ -23,7 +23,7 @@ const CardGift = (props) =>
     }
 
     return (
-        <div>
+        <React.Fragment>
             <div className="card-gift">
                 <div className={ cardFlip ? 'card flipped' : 'card' }
                     onClick={ () => setCardFlip(!cardFlip) }
@@ -40,7 +40,7 @@ const CardGift = (props) =>
                             </div>
                         </div>
                         <div className="row middle">
-                            <div className="col text-center">
+                            <div className="col text-center align-items-center justify-content-center">
                                 <label>Vale presente</label>
                                 <span>
                                     <b>{ props.value ? `R$ ${ props.value }` : '' }</b>
@@ -95,7 +95,7 @@ const CardGift = (props) =>
             <div className="text-center">
                 <small>{ msgInfo }</small>
             </div>
-        </div>
+        </React.Fragment>
     )
 }
 
