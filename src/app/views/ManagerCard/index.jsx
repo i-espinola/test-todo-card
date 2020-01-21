@@ -2,7 +2,7 @@
 import React from 'react'
 import Axios from 'axios'
 import PropTypes from 'prop-types'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 // Components
 import { List, Card, Icon, Modal } from 'antd'
@@ -65,7 +65,7 @@ class ManagerCards extends React.Component
 	*/
 	cardsRender = (item) => { 
 
-		const queryCard = `/${ this.props.topData.user.id }/${ item.hash }`
+		const linkCard = `/my-card${ this.props.topData.user.id }/${ item.hash }`
 		const typeCard = typeof (item.content) === 'number' ? 'Cartão crédito' : 'Cartão lista'  
 		return (
             <List.Item>
@@ -76,7 +76,7 @@ class ManagerCards extends React.Component
 						<Icon type="close" key="remove-card" onClick={ () => this.confirmRemove(item) } />,
 					] }
 					actions={ [
-						<Icon type="credit-card" key="view-card" onClick={ () => this.props.history.push('/my-card' + queryCard) } />,
+						 <Link target="_blank" to={ linkCard }><Icon type="credit-card" key="view-card"/></Link>,
 					] }
 				>
 					<p>Validade: <b>{ item.validData }</b></p>
