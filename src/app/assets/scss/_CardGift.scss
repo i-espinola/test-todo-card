@@ -113,46 +113,70 @@ body {
                         display: inline-flex;
 
                         label {
-                            font-size: 1.5rem;
+                            font-size: x-large;
+                            margin: 0;
                             display: block;
                             text-transform: uppercase;
                             letter-spacing: 1px;
                             text-align: center;
                             font-weight: 100;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
                         }
 
                         span {
-                            font-size: 1.7rem;
+                            font-size: x-large;
                             display: block;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
                         }
                     }
                 }
                 
                 .footer {
-                    margin: 1rem .2rem 1rem;
+                    margin: 0 2% 1%;
                     
-                    label {
-                        font-size: $font-small;
-                        display: block;
-                        margin: 0;
-                    }
-                    
-                    span {
-                        font-size: $font-medium;
-                        line-height: $font-medium;
-                        font-weight: bold;
-                        display: block;
-                    }
-                    
-                    & :last-child {
+                    >div {
+                        padding: 0;
 
                         label {
                             font-size: $font-small;
+                            display: block;
+                            margin: 0;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
                         }
-
+                        
                         span {
-                            font-size: $font-small;
-                            font-weight: 100;
+                            font-size: $font-medium;
+                            line-height: $font-medium;
+                            font-weight: bold;
+                            display: block;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                        
+                        &:last-child {
+
+                            label {
+                                font-size: $font-small;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+
+                            }
+
+                            span {
+                                font-size: $font-small;
+                                font-weight: 100;
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                            }
                         }
                     }
                 }
