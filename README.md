@@ -54,6 +54,8 @@ Eu fiz um deploy da aplicação na plataforma Heroku. Para acessar a aplicação
 
 - [x] Axios
 - [x] Babel
+- [x] Bootstrp Grid
+- [x] CSS
 - [x] ESlint
 - [x] Express
 - [x] Ant Design
@@ -63,6 +65,7 @@ Eu fiz um deploy da aplicação na plataforma Heroku. Para acessar a aplicação
 - [x] Loading-skeleton
 - [x] Nodejs
 - [x] NPM
+- [x] PM2
 - [x] Prop-types
 - [x] React
 - [x] SCSS
