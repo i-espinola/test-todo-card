@@ -95,3 +95,23 @@ form {
         letter-spacing: 1px;
     }
 }
+
+@media (max-width: 768px) {
+
+    div,
+    form {
+
+        &.field-group {
+            display: block;
+            
+            > div {
+                display: block !important;
+            
+                &:first-child {
+
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+}
