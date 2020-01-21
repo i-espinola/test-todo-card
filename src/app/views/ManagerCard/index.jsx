@@ -79,8 +79,8 @@ class ManagerCards extends React.Component
 						<Icon type="credit-card" key="view-card" onClick={ () => this.props.history.push('/my-card' + queryCard) } />,
 					] }
 				>
-					<label>{ `Validade: ${ item.validData }` }</label>
-					<label>{ typeCard }</label>
+					<p>Validade: <b>{ item.validData }</b></p>
+					<p>Tipo: <b>{ typeCard }</b></p>
 				</Card>
             </List.Item>
         )

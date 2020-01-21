@@ -92,9 +92,18 @@
 	-moz-transition: $transition;
 	-webkit-transition: $transition;
 
-    > input {
+    & input {
 		border: none;
 		box-shadow: none;
+		margin: 0;
+		padding: 0;
+		
+		&.ant-select-search__field {
+			border: none;
+			box-shadow: none;
+			margin: 0;
+			padding: 0;
+		}
     }
 
 	& .ant-select-selection {

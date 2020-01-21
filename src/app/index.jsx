@@ -8,7 +8,7 @@ import Routes from './Routes'
 export default class App extends React.Component 
 {
     state = {
-        api: 'https://todo-cartoes-api.herokuapp.com/',
+        api: 'https://todo-cartoes-api.herokuapp.com/api/',
         user: { id: 0  }
     }
 

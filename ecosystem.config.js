@@ -3,13 +3,11 @@ module.exports = {
 		{
 			name: 'APP Todo-card',
 			script: './server/express.js',
-
-			// Options reference: https://pm2.keymetrics.io/docs/usage/application-declaration/
 			// time: true,
 			// watch: true,
-			// autorestart: true,
-			instances: 1,
-			// instances: "max",
+			// instances: 1,
+			instances: "max",
+			autorestart: true,
 			max_memory_restart: '512M',
 
 			// LOGS
@@ -22,17 +20,4 @@ module.exports = {
 			}
 		},
 	],
-
-	// To auto deploy with PM2
-	deploy: {
-		production: {
-			user: 'node',
-			host: '192.168.0.12',
-			ref: 'origin/master',
-			repo: 'git@github.com/i-espinola/test-todo-card.git',
-			path: '/build',
-			'post-deploy':
-				'npm install && pm2 reload ecosystem.config.js --env production',
-		},
-	},
 }

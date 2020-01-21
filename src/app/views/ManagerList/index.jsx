@@ -62,11 +62,15 @@ class ManagerLists extends React.Component
 
     /**
     * Lista todos os cards
-    * @param {{ id: number; name: string; itens: array[]; }} list
     */
     listRender = (list) =>
     {
-        const { Meta } = Card
+        let total = 0
+        const currencyFormat = (num) => `R$ ${ num.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') }`
+        
+        list.itens.map((item) => total += item.price)
+        const vMiddle = currencyFormat(total / list.itens.length)
+        const vTotal = currencyFormat(total)
 
         return (
             <List.Item>
@@ -77,9 +81,9 @@ class ManagerLists extends React.Component
                     ] }
                     title={ list.name }
                 >
-                    <Meta
-                        description={ `Itens: ${ list.itens.length }` }
-                    />
+                    <p>Itens: <b>{ list.itens.length }</b></p>
+                    <p>Valor médio: <b>{ vMiddle }</b></p>
+                    <p>Total: <b>{ vTotal }</b></p>
                 </Card>
             </List.Item>
         )

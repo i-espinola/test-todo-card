@@ -40,9 +40,9 @@ const select = (props) =>
                         <Switch
                             checked={ props.createData.cardList }
                         />
-                        <h6>Cartão pré-definido</h6>
+                        <h6>Cartão lista</h6>
                     </div>
-                    <p>O Cartão pré-definido define itens pré-definidos a partir de uma lista personalizada 
+                    <p>O Cartão lista define itens pré-definidos a partir de uma lista personalizada 
                         que você poderá criar, ou simplesmente selecionar itens avulsos ao cartão gift.</p>
                 </Card>
             </div>
