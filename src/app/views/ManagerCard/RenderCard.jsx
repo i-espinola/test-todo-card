@@ -35,7 +35,7 @@ const RenderCard = (props) =>
         {
             setLoader(true)
             const { userId, cardHash } = props.match.params
-
+            console.log(props.match.params)
             Axios.get(`${ apiQuery }${ userId }`)
                 .then(res =>
                 {

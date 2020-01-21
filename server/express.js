@@ -8,8 +8,9 @@ const path = require('path')
 const app = express()
 
 app.use(favicon(setup.path + setup.favicon))
-app.use(express.static(setup.path))
 app.use(express.static(path.join(setup.path, setup.public)))
+app.use('/my-card/:userId/:cardHash', express.static(path.join(setup.path, setup.public)))
+
 app.get(setup.request, (req, res) => {
 	res.sendFile(path.join(setup.path, setup.public, setup.file))
 })
