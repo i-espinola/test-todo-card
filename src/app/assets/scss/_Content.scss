@@ -10,8 +10,9 @@
     border-radius: $radius;
 
     .content-head {
-        min-height: 100px;
-        width: auto;
+        height: 100px;
+        overflow: hidden;
+        width: 100%;
         padding: 15px;
         margin-right: auto;
         margin-left: auto;

@@ -24,7 +24,7 @@ const initState = {
 const initStep = {
     stepActive: 0,
     stepsTitles: ['Seleção', 'Criar', 'Confirmação'],
-    stepsSubtitles: ['Tipo de cartão', 'Configuração', 'Checagem de dados'],
+    stepsSubtitles: ['Tipo', 'Configuração', 'Dados'],
 }
 
 const initCardType = {
