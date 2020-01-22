@@ -48,7 +48,7 @@ const CardGift = (props) =>
                             </div>
                         </div>
                         <div className="row footer">
-                            <div className="col-8">
+                            <div className="col-9">
                                 <label>Favorecido</label>
                                 <span className='text-nowrap'>
                                     {
@@ -60,7 +60,7 @@ const CardGift = (props) =>
                                     }
                                 </span>
                             </div>
-                            <div className="col-4">
+                            <div className="col-3">
                                 <label>Validade</label>
                                 <span>
                                     {

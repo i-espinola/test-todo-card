@@ -26,9 +26,11 @@ const select = (props) =>
                         />
                         <h6>Cartão crédito</h6>
                     </div>
-                    <p>Este tipo de cartão, é definido um valor(R$) de crédito ao cartão gift, desta forma,
-                        o beneficiário sera contemplado com um valor moeda para gastar no estabelecimento
-                        até que o valor total do cartão seja esgotado.</p>
+                        <p>
+                            No cartão crédito você define um valor(R$) de crédito ao cartão gift, desta forma,
+                            o beneficiário sera contemplado com um valor moeda para consumir no estabelecimento
+                            até que o valor total do cartão seja esgotado.
+                        </p>
                 </Card>
             </div>
             <div className="col-auto mt-4 d-flex justify-content-center">
@@ -42,8 +44,11 @@ const select = (props) =>
                         />
                         <h6>Cartão lista</h6>
                     </div>
-                    <p>O Cartão lista define itens pré-definidos a partir de uma lista personalizada 
-                        que você poderá criar, ou simplesmente selecionar itens avulsos ao cartão gift.</p>
+                        <p>
+                            O Cartão lista tem como conteúdo uma ou várias listas de presente que você tem.
+                            Você pode adicionar itens a uma nova lista e calcular o valor total da lista e 
+                            valor médio dos itens inclusos em cada lista de presentes que você criar.
+                        </p>
                 </Card>
             </div>
         </div>
