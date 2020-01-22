@@ -20,7 +20,8 @@ const CheckoutCard = (props) =>
     return (
         <Layout>
             <div className="content-head text-center">
-                <h1>Cartão criado com sucesso!</h1>
+                <h1>Cartão criado</h1>
+                <span>O novo cartão gift foi criado com sucesso!</span>
             </div>
             <div className="content-body">
                 <div className="row d-flex align-items-center text-center">
@@ -28,7 +29,7 @@ const CheckoutCard = (props) =>
                         <Result
                             icon={ <Icon type="smile" theme="twoTone" /> }
                             title="Seu cartão já esta pronto."
-                            subTitle="Guarde o link abaixo em um ligar seguro. Este link da acesso ao cartão."
+                            subTitle="Envie o link abaixo para entregar cartão ao favorecido. Clique no link abaixo para visualizar o cartão criado."
                         />
                         <Link target="_blank" to={ linkCard }><h5>{ `${ window.location.host }/my-card/${ state.userId }/${ state.cardHash }` }</h5></Link>
                     </div>
@@ -42,7 +43,7 @@ const CheckoutCard = (props) =>
                             className="default"
                             onClick={ () => props.history.push('/dashboard') }
                         >
-                            Ok
+                            Retornar ao painel
                         </button>
                     </div>
                 </div>

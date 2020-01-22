@@ -108,7 +108,7 @@ class BuildCard extends React.Component
             extra={
                 <button
                     type="button"
-                    className="secondary"
+                    className="primary"
                     onClick={ () => this.props.history.push('/create-list') }
                 >
                     Criar lista de presente
