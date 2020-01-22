@@ -27,8 +27,8 @@ const select = (props) =>
                         <h6>Cartão crédito</h6>
                     </div>
                         <p>
-                            No cartão crédito você define um valor(R$) de crédito ao cartão gift, desta forma,
-                            o beneficiário sera contemplado com um valor moeda para consumir no estabelecimento
+                            No cartão crédito você define um valor de crédito ao cartão gift, desta forma,
+                            o beneficiário sera contemplado com um valor em reais para consumir no estabelecimento
                             até que o valor total do cartão seja esgotado.
                         </p>
                 </Card>
@@ -45,9 +45,9 @@ const select = (props) =>
                         <h6>Cartão lista</h6>
                     </div>
                         <p>
-                            O Cartão lista tem como conteúdo uma ou várias listas de presente que você tem.
-                            Você pode adicionar itens a uma nova lista e calcular o valor total da lista e 
-                            valor médio dos itens inclusos em cada lista de presentes que você criar.
+                            O Cartão lista tem como conteúdo uma ou várias listas de presente que você já criou.
+                            Você pode adicionar itens a uma nova lista e calcular o valor total, números de itens
+                            adicionados e valor médio dos itens inclusos em cada lista de presentes que você criar.
                         </p>
                 </Card>
             </div>
